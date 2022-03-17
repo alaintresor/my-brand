@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* font-family: */
+}
+
+body {
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+.container {
+  margin: 0 100px;
+}
+.top-section {
+  background-color: #53a0e8;
+}
+.nav {
+  padding: 20px 0;
+  color: white;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-items span {
+  padding: 0px 20px;
+}
+.welcome-section .btn {
+  margin-top: 160px;
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  color: #53a0e8;
+  border: none;
+  border-radius: 10px;
+}
+.welcome-section h1 {
+  color: white;
+  padding-top: 15px;
+  font-size: 47px;
+  font-weight: normal;
+}
+.welcome-section h2 {
+  color: white;
+  padding-bottom: 15px;
+  font-size: 47px;
+  font-weight: normal;
+}
+.welcome-section p {
+  color: white;
+  font-size: 16px;
+  width: 80%;
+}
+.welcome-section .btns-section {
+  margin: 40px 0;
+}
+
+.hire-btn {
+  background-color: #0779e4;
+  color: white;
+  /* width: 100px; */
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 0 20px;
+  align-items: center;
+  font-size: 16px;
+}
+.welcome-section .btns-section img {
+  padding-left: 5px;
+  /* height: 15px; */
+}
+.view-btn {
+  background-color: white;
+  color: #0779e4;
+  /* width: 100px; */
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 0 20px;
+  margin-left: 20px;
+  font-size: 16px;
+}
+.welcome-section .social-medias {
+  margin-top: 20px;
+  color: white;
+  /* padding-left: 20px; */
+  font-weight: bold;
+  padding-bottom: 80px;
+}
+.welcome-section .social-medias span {
+  padding-right: 20px;
+}
+.welcome-image img {
+  height: 600px;
+  padding-right: 50px;
+}
