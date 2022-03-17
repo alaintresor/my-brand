@@ -10,21 +10,38 @@ body {
   min-height: 100vh;
 }
 .container {
-  margin: 0 100px;
+  margin: 0 150px;
 }
 .top-section {
   background-color: #53a0e8;
+}
+.menu {
+  background-color: #53a0e8;
+  position: fixed;
+  width: 100%;
 }
 .nav {
   padding: 20px 0;
   color: white;
 }
+.nav .log {
+  font-size: 20px;
+}
 .row {
   display: flex;
   justify-content: space-between;
 }
+.row-start {
+  display: flex;
+  justify-content: flex-start;
+}
 .nav-items span {
   padding: 0px 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.welcome-section {
+  padding-top: 55px;
 }
 .welcome-section .btn {
   margin-top: 160px;
@@ -97,4 +114,175 @@ body {
 .welcome-image img {
   height: 600px;
   padding-right: 50px;
+}
+
+/* about section  */
+.about {
+  padding: 40px 0;
+}
+/* .about .image-section img {
+  height: 550px;
+  padding-right: 100px;
+} */
+.about .text-section {
+  margin-top: 150px;
+  margin-left: 50px;
+}
+
+.about .text-section .titles button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: white;
+  border: none;
+  text-transform: uppercase;
+}
+.about .text-section .content {
+  padding-top: 30px;
+}
+.about .text-section h1 {
+  padding: 20px 0;
+  font-size: 40px;
+}
+.about .text-section p {
+  font-size: 16px;
+  color: #6f6d6d;
+}
+.about .text-section h3 {
+  padding: 30px 0;
+  font-size: 24px;
+}
+/* portfolio section  */
+.header {
+  text-align: center;
+}
+.header h3 {
+  color: #0779e4;
+  text-transform: uppercase;
+  padding: 10px 0;
+  font-size: 20px;
+}
+.header h1 {
+  font-size: 36px;
+}
+/* .portfolio-images {
+  padding: 0 20px;
+} */
+.portfolio-images img {
+  padding: 8px;
+  width: 50%;
+}
+
+/* blog section  */
+.blog {
+  padding: 30px 0;
+}
+.blog .blog-item {
+  width: 50%;
+  margin: 10px;
+  /* flex-shrink: 0; */
+}
+.blog .blog-item img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.blog .content {
+  background-color: white;
+  padding: 20px;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+}
+.blog .content h3 {
+  /* background-color: white; */
+  padding: 16px 0;
+  font-size: 18px;
+}
+.blog .content p {
+  /* background-color: white; */
+  font-size: 14px;
+}
+.blog .date {
+  padding-right: 50px;
+  color: #6f6d6d;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+}
+.blog .date img,
+.blog .comment img {
+  width: 15px;
+  margin-right: 5px;
+}
+.blog .comment {
+  padding-right: 50px;
+  color: #0779e4;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* contact section  */
+.contact .map {
+  width: 100%;
+}
+.contact .form {
+  background-color: white;
+  padding: 40px 90px;
+  width: 100%;
+}
+.contact .form p {
+  padding: 15px 0;
+}
+.contact form .half {
+  width: 49%;
+  height: 30px;
+  margin-bottom: 5px;
+}
+.contact form .full {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 5px;
+}
+.contact form .textarea {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.contact form .submit-btn {
+  /* width: 100%; */
+  margin-bottom: 10px;
+  padding: 8px;
+  border: none;
+  background-color: #0779e4;
+  color: white;
+}
+.follow h4 {
+  margin-top: 15px;
+  font-size: 16px;
+}
+.follow-item {
+  padding-right: 20px;
+  color: #0779e4;
+  font-size: 12px;
+}
+.job {
+  background-color: #0779e4;
+  width: 100%;
+  padding: 20px 0;
+  color: white;
+}
+.job .contact-btn {
+  border: 2px solid white;
+  background-color: transparent;
+  padding: 10px 80px;
+  color: white;
+  /* margin-right: 80px; */
+}
+
+/* footer  */
+
+footer {
+  background-color: #eeeeee;
+  /* padding-top: 30px; */
+}
+footer h1 {
+  padding: 30px;
 }
