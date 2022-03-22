@@ -468,6 +468,7 @@ footer .contact img {
 }
 .login-form h1 {
   color: white;
+  text-align: center;
 }
 .login-form .form {
   background-color: white;
