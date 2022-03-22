@@ -7,6 +7,10 @@
   display: flex;
   justify-content: space-between;
 }
+.row-noChange {
+  display: flex;
+  justify-content: space-between;
+}
 .row-start {
   display: flex;
   justify-content: start;
@@ -18,6 +22,7 @@
   background-color: #0779e4;
   color: white;
   padding: 20px 0;
+  width: 100%;
 }
 .header .user img {
   width: 12px;
@@ -29,13 +34,38 @@
 }
 .menu {
   background-color: #53a0e8;
-  padding: 30px;
+  /* padding: 30px; */
   color: white;
   width: 20%;
   min-height: 83vh;
 }
-.menu-item {
+a {
+  text-decoration: none;
+}
+a .menu-item {
   padding-bottom: 20px;
+  color: white;
+  font-weight: bold;
+  /* text-decoration: none; */
+  font-size: 16px;
+  padding: 15px;
+}
+.side {
+  display: flex;
+  justify-content: space-between;
+}
+.mobile-nav {
+  display: none;
+}
+.mobile-nav img {
+  width: 30px;
+}
+.mobile-menu {
+  display: none;
+}
+.mobile-menu a div {
+  width: 100%;
+  margin-bottom: 10px;
 }
 .content {
   padding: 20px;
@@ -142,4 +172,36 @@ th {
 }
 .btns button img {
   width: 30px;
+}
+
+@media only screen and (max-width: 992px) {
+  .menu {
+    display: none;
+  }
+  .content {
+    width: 100%;
+    min-height: 83vh;
+  }
+  .mobile-menu {
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+  }
+  .mobile-nav {
+    display: block;
+  }
+  .header {
+    position: fixed;
+  }
+  .body {
+    padding-top: 80px;
+  }
+  .box {
+    flex-direction: column;
+    align-content: space-around;
+  }
+  .box-item {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

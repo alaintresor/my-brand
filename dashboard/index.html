@@ -15,32 +15,67 @@
 <body>
     <section class="header">
         <div class="container">
-            <div class="row">
+            <div class="row-noChange">
                 <div class="log">
                     <h1>Al.Tresor</h1>
                 </div>
-                <div class="user">
-                    Alain Tresor <span>
-                        <img src="./images/ant-design_caret-down-filled.png" alt="">
-                    </span>
+                <div class="side">
+                    <div class="user">
+                        Alain Tresor <span>
+                            <img src="./images/ant-design_caret-down-filled.png" alt="">
+                        </span>
+                    </div>
+                    <div class="mobile-nav">
+                        <img src="/images/bx_menu.png" alt="" id="showMenu">
+                    </div>
                 </div>
+
+            </div>
+            <div class="mobile-menu">
+                <a href="#">
+                    <div class="menu-item">
+                        Dashboard
+                    </div>
+
+                </a>
+                <hr>
+                <a href="new-article.html">
+                    <div class="menu-item">
+                        New Article
+                    </div>
+                </a>
+                <hr>
+                <a href="./view-article.html">
+                    <div class="menu-item">
+                        View Article
+                    </div>
+                </a>
+                <hr>
             </div>
         </div>
     </section>
     <section class="body">
         <div class="row-start">
             <div class="menu">
-                <div class="menu-item">
-                    Dashboard
-                </div>
+                <a href="#">
+                    <div class="menu-item">
+                        Dashboard
+                    </div>
+
+                </a>
+                <hr>
                 <a href="new-article.html">
                     <div class="menu-item">
                         New Article
                     </div>
                 </a>
-                <div class="menu-item">
-                    View Article
-                </div>
+                <hr>
+                <a href="./view-article.html">
+                    <div class="menu-item">
+                        View Article
+                    </div>
+                </a>
+                <hr>
             </div>
             <div class="content">
                 <h1>Dashboard</h1>
@@ -89,6 +124,7 @@
     <footer>
         <h3>copyright &copy; 2022 by Alain Tresor</h3>
     </footer>
+    <script src="./javascript.js"></script>
 </body>
 
 </html>
