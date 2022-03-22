@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.row-start {
+  display: flex;
+  justify-content: start;
+}
+.container {
+  margin: 0 30px;
+}
+.header {
+  background-color: #0779e4;
+  color: white;
+  padding: 20px 0;
+}
+.header .user img {
+  width: 12px;
+  cursor: pointer;
+}
+.body {
+  width: 100%;
+  background-color: #f8f8f8;
+}
+.menu {
+  background-color: #53a0e8;
+  padding: 30px;
+  color: white;
+  width: 20%;
+  min-height: 83vh;
+}
+.menu-item {
+  padding-bottom: 20px;
+}
+.content {
+  padding: 20px;
+  width: 80%;
+}
+.box {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+.box-item {
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  align-content: center;
+  padding-top: 30px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.feedback {
+  margin-top: 60px;
+}
+.feedback-items {
+  background-color: white;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+}
+.feedback-body {
+  margin: 10px 0;
+}
+.feedback-footer .reply {
+  border: none;
+  background-color: #0779e4;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+}
+.feedback-footer .delete {
+  border: none;
+  background-color: red;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+}
+footer {
+  width: 100%;
+  background-color: #53a0e8;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+}
+.article-form {
+  background: white;
+  padding: 30px;
+  margin: 40px 200px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.article-form form {
+  display: flex;
+  flex-direction: column;
+}
+.article-form form input[type="text"],
+select,
+input[type="file"] {
+  margin-bottom: 10px;
+  height: 35px;
+}
+.article-form form textarea {
+  margin-bottom: 10px;
+  /* height: 35px; */
+}
+.article-form form input[type="submit"] {
+  margin-top: 20px;
+  background-color: #0779e4;
+  border: none;
+  color: white;
+  height: 35px;
+}
+
+table {
+  width: 100%;
+  /* border: solid black 2px; */
+}
+tr {
+  text-align: start;
+  /* border: solid black 2px; */
+  height: 30px;
+}
+th {
+  text-align: start;
+}
+.btns {
+  display: flex;
+  justify-content: space-around;
+}
+.btns button {
+  background-color: transparent;
+  border: none;
+  /* width: 10px; */
+  cursor: pointer;
+}
+.btns button img {
+  width: 30px;
+}

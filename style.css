@@ -6,8 +6,14 @@
 }
 
 body {
-  background-color: #f8f8f8;
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f8f8;
+}
+/* .bg-white {
+} */
+a {
+  text-decoration: none;
 }
 .container {
   margin: 0 150px;
@@ -20,28 +26,66 @@ body {
   position: fixed;
   width: 100%;
 }
+.menu a {
+  color: white;
+}
+.mobile-menu {
+  display: none;
+}
+.mobile-menu a div {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.mobile-menu a div:hover {
+  background-color: #3a86ce;
+}
 .nav {
-  padding: 20px 0;
+  padding: 15px 0;
   color: white;
 }
 .nav .log {
-  font-size: 20px;
+  font-size: 15px;
+  width: 100%;
 }
 .row {
   display: flex;
   justify-content: space-between;
 }
-.row-start {
+.row-noChange {
+  display: flex;
+  justify-content: space-between;
+}
+.row-start,
+.row-start-change {
   display: flex;
   justify-content: flex-start;
 }
+.nav-items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-items-blog {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+.mobile-nav {
+  display: none;
+}
+.mobile-nav img {
+  width: 40px;
+}
 .nav-items span {
-  padding: 0px 20px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
 }
 .welcome-section {
   padding-top: 55px;
+}
+.welcome-section .text-section,
+.welcome-image {
+  width: 100%;
 }
 .welcome-section .btn {
   margin-top: 160px;
@@ -55,18 +99,18 @@ body {
 .welcome-section h1 {
   color: white;
   padding-top: 15px;
-  font-size: 47px;
+  font-size: 40px;
   font-weight: normal;
 }
 .welcome-section h2 {
   color: white;
   padding-bottom: 15px;
-  font-size: 47px;
+  font-size: 38px;
   font-weight: normal;
 }
 .welcome-section p {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   width: 80%;
 }
 .welcome-section .btns-section {
@@ -111,9 +155,12 @@ body {
 .welcome-section .social-medias span {
   padding-right: 20px;
 }
+.welcome-image {
+  /* width: 100; */
+}
 .welcome-image img {
-  height: 600px;
-  padding-right: 50px;
+  width: 100%;
+  /* padding-right: 50px; */
 }
 
 /* about section  */
@@ -180,16 +227,20 @@ body {
   width: 50%;
   margin: 10px;
   /* flex-shrink: 0; */
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-radius: 10px;
 }
 .blog .blog-item img {
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
 .blog .content {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   width: 100%;
   border-radius: 0 0 10px 10px;
+  margin-top: -10px;
 }
 .blog .content h3 {
   /* background-color: white; */
@@ -282,7 +333,326 @@ body {
 footer {
   background-color: #eeeeee;
   /* padding-top: 30px; */
+  width: 100%;
 }
 footer h1 {
+  padding: 30px 0;
+}
+
+footer .log,
+footer .service,
+footer .contact {
+  /* width: 100%; */
+  justify-content: center;
+}
+
+footer .log p {
+  width: 250px;
+}
+footer .log img {
+  width: 40px;
+  padding-top: 30px;
+}
+footer .service ul {
+  list-style: url("/images/akar-icons_arrow-right-blue.svg");
+  line-height: 40px;
+}
+
+footer .contact div {
+  padding-bottom: 20px;
+}
+footer .contact img {
+  width: 20px;
+  margin-right: 10px;
+}
+.copyright {
+  margin-top: 20px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: #e9e9e9;
+  font-weight: bold;
+}
+
+/* Blog Styles */
+
+.blog-content {
+  padding-top: 100px;
+}
+.blog-content .image {
+  display: flex;
+  justify-content: center;
+}
+.blog-content .image img {
+  /* width: 40%; */
+}
+.blog-content .title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.blog-content .body #body {
+  line-height: 30px;
+}
+.blog-content .body .icons-section {
+  padding: 20px 0;
+}
+.blog-content .body .icons-section img {
+  width: 20px;
+}
+.blog-content .body .likes {
+  padding-right: 50px;
+}
+.blog-content .comments {
+  padding: 20px 0;
+}
+.blog-content .comments .comment-item {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+}
+.blog-content .comments .comment-item img {
+  width: 80px;
+  height: 50px;
+  padding-right: 30px;
+}
+.blog-content .comments .comment-item .date {
+  padding: 10px 0;
+  font-size: 10px;
+}
+.blog-content .comments .comment-item p {
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+.leave-comment .form {
+  /* background-color: white; */
+  padding: 40px 0;
+  width: 70%;
+}
+.leave-comment .form p {
+  padding: 15px 0;
+}
+.leave-comment form .half {
+  width: 49%;
+  height: 30px;
+  margin-bottom: 5px;
+}
+.leave-comment form .full {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 5px;
+}
+.leave-comment form .textarea {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.leave-comment form .submit-btn {
+  /* width: 100%; */
+  margin-bottom: 10px;
+  padding: 8px;
+  border: none;
+  background-color: #0779e4;
+  color: white;
+}
+.bg-blue {
+  background-color: #3a86ce;
+}
+.login-form {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  margin-top: 150px;
+}
+.login-form h1 {
+  color: white;
+}
+.login-form .form {
+  background-color: white;
   padding: 30px;
+  margin-top: 20px;
+}
+.login-form form {
+  display: flex;
+  flex-direction: column;
+}
+.login-form form input {
+  width: 400px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.login-form form input[type="submit"] {
+  width: 400px;
+  height: 30px;
+  margin: 0;
+  margin-top: 25px;
+  background-color: #0779e4;
+  color: white;
+  border: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .row,
+  .row-start-change {
+    flex-direction: column;
+  }
+  .welcome-image {
+    display: none;
+  }
+  .container {
+    margin: 0 20px;
+  }
+  .image-section img {
+    width: 100%;
+  }
+  .nav-items,
+  .nav-items-blog {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+  .menu {
+    /* height: 60px; */
+  }
+  .about .text-section {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .about .text-section .titles button {
+    padding: 10px 10px;
+    margin-right: 10px;
+  }
+  .about .text-section .content {
+    padding-top: 20px;
+  }
+  .about .text-section h1 {
+    padding: 10px 0;
+    font-size: 25px;
+  }
+  .about .text-section p {
+    font-size: 14px;
+  }
+  .about .text-section h3 {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+  .header h3 {
+    font-size: 15px;
+  }
+  .header h1 {
+    font-size: 30px;
+  }
+  /* .portfolio-images {
+    padding: 0 20px;
+  } */
+  .portfolio-images img {
+    padding: 8px;
+    width: 100%;
+  }
+  .blog {
+    padding: 10px 0;
+  }
+  .blog .blog-item {
+    width: 100%;
+    margin: 0;
+    margin-top: 30px;
+    /* flex-shrink: 0; */
+  }
+
+  .blog .content h3 {
+    padding: 16px 0;
+    font-size: 14px;
+  }
+  .blog .content p {
+    font-size: 12px;
+  }
+  .contact .form {
+    padding: 10px 20px;
+    width: 100%;
+  }
+  .contact .form p {
+    padding: 10px 0;
+  }
+  .contact form .half {
+    width: 100%;
+  }
+  .job {
+    align-content: center;
+  }
+  .job h1 {
+    font-size: 15px;
+  }
+  .job h4 {
+    font-size: 12px;
+  }
+  .job .contact-btn {
+    margin-top: 10px;
+    padding: 10px 80px;
+    align-self: center;
+    /* color: white; */
+    /* margin-right: 80px; */
+  }
+  footer .service ul {
+    padding-left: 25px;
+  }
+  .welcome-section {
+    padding-top: 55px;
+  }
+  .welcome-section .text-section,
+  .welcome-image {
+    width: 100%;
+  }
+  /* .welcome-section .btn {
+    margin-top: 160px;
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    color: #53a0e8;
+    border: none;
+    border-radius: 10px;
+  } */
+  .welcome-section h1 {
+    /* color: white;
+    padding-top: 15px; */
+    font-size: 32px;
+    /* font-weight: normal; */
+  }
+  .welcome-section h2 {
+    color: white;
+    padding-bottom: 15px;
+    font-size: 28px;
+    font-weight: normal;
+  }
+  .welcome-section p {
+    color: white;
+    font-size: 12px;
+    width: 100%;
+  }
+  .blog-content .image img {
+    width: 80%;
+  }
+  .blog-content .title {
+    flex-direction: column;
+  }
+  .blog-content .title .date {
+    font-size: 11px;
+    margin: 10px 0;
+  }
+  .blog-content .title .date img {
+    width: 13px;
+  }
+  .leave-comment .form {
+    width: 100%;
+  }
+  .leave-comment form .half {
+    width: 100%;
+  }
+  .mobile-menu {
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+  }
 }
