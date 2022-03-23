@@ -46,7 +46,7 @@ a {
 a .menu-item {
   padding-bottom: 20px;
   color: white;
-  font-weight: bold;
+  /* font-weight: bold; */
   /* text-decoration: none; */
   font-size: 18px;
   padding: 15px;
@@ -91,9 +91,12 @@ a .menu-item img {
   height: 100px;
   text-align: center;
   align-content: center;
-  padding-top: 30px;
+  padding-top: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.box-item img {
+  width: 40px;
 }
 .feedback {
   margin-top: 60px;

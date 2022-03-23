@@ -464,11 +464,19 @@ footer .contact img {
   /* justify-content: center; */
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
+  padding-top: 50px;
 }
 .login-form h1 {
   color: white;
   text-align: center;
+}
+.login-form p {
+  /* color: white; */
+  text-align: center;
+  margin-top: 10px;
+}
+.login-form p a {
+  color: #0779e4;
 }
 .login-form .form {
   background-color: white;
@@ -482,7 +490,7 @@ footer .contact img {
 .login-form form input {
   width: 400px;
   height: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .login-form form input[type="submit"] {
   width: 400px;
