@@ -22,10 +22,18 @@
                     </a>
                 </div>
                 <div class="side">
-                    <div class="user">
+                    <div class="user" id="userDiv">
                         Alain Tresor <span>
                             <img src="./images/ant-design_caret-down-filled.png" alt="">
                         </span>
+                        <div class="user-profile">
+                            <h4>user profile</h4>
+                            <hr>
+                            <h4>
+                                <a href="/">
+                                    logout</a>
+                            </h4>
+                        </div>
                     </div>
                     <div class="mobile-nav">
                         <img src="/images/bx_menu.png" alt="" id="showMenu">
@@ -34,20 +42,20 @@
 
             </div>
             <div class="mobile-menu">
-                <a href="#">
+                <a href="#" onclick="showMenu()">
                     <div class="menu-item">
                         Dashboard
                     </div>
 
                 </a>
 
-                <a href="new-article.html">
+                <a href="new-article.html" onclick="showMenu()">
                     <div class="menu-item">
                         New Article
                     </div>
                 </a>
 
-                <a href="./view-article.html">
+                <a href="./view-article.html" onclick="showMenu()">
                     <div class="menu-item">
                         View Article
                     </div>
@@ -55,6 +63,7 @@
 
             </div>
         </div>
+
     </section>
     <section class="body">
         <div class="row-start">
@@ -86,19 +95,19 @@
 
                     <div class="box-item">
                         <img src="./images/dashicons_admin-post.png" alt="">
-                        <h1>3 Posts</h1>
+                        <h1>3 Post(s)</h1>
                     </div>
                     <div class="box-item">
                         <img src="./images/fa-solid_comment-dots.png" alt="">
-                        <h1>3 Comments</h1>
+                        <h1>3 Comment(s)</h1>
                     </div>
                     <div class="box-item">
                         <img src="./images/Vector (2).png" alt="">
-                        <h1>6 Feedback</h1>
+                        <h1>1 Message(s)</h1>
                     </div>
                 </div>
                 <div class="feedback">
-                    <h1>Feedback</h1>
+                    <h1> Messages</h1>
                     <div class="feedback-items">
                         <div class="feedback-item">
                             <div class="feedback-title">

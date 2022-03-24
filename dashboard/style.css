@@ -55,12 +55,32 @@ a .menu-item img {
   width: 17px;
   margin-right: 10px;
 }
+.user-profile {
+  margin-top: 40px;
+  padding: 5px;
+  background-color: #53a0e8;
+  top: 10px;
+  position: absolute;
+  border-radius: 5px;
+  display: none;
+}
+.user-profile h4 {
+  padding: 10px;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  cursor: pointer;
+}
+.user-profile h4 a {
+  color: white;
+}
 .side {
   display: flex;
   justify-content: space-between;
 }
 .user {
   margin-right: 10px;
+  cursor: pointer;
 }
 .mobile-nav {
   display: none;

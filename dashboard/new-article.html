@@ -22,10 +22,18 @@
                     </a>
                 </div>
                 <div class="side">
-                    <div class="user">
+                    <div class="user" id="userDiv">
                         Alain Tresor <span>
                             <img src="./images/ant-design_caret-down-filled.png" alt="">
                         </span>
+                        <div class="user-profile">
+                            <h4>user profile</h4>
+                            <hr>
+                            <h4>
+                                <a href="/">
+                                    logout</a>
+                            </h4>
+                        </div>
                     </div>
                     <div class="mobile-nav">
                         <img src="/images/bx_menu.png" alt="" id="showMenu">
@@ -34,20 +42,20 @@
 
             </div>
             <div class="mobile-menu">
-                <a href="index.html">
+                <a href="index.html" onclick="showMenu()">
                     <div class="menu-item">
                         Dashboard
                     </div>
 
                 </a>
 
-                <a href="#">
+                <a href="#" onclick="showMenu()">
                     <div class="menu-item">
                         New Article
                     </div>
                 </a>
 
-                <a href="./view-article.html">
+                <a href="./view-article.html" onclick="showMenu()">
                     <div class="menu-item">
                         View Article
                     </div>

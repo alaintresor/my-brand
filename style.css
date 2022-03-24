@@ -212,6 +212,9 @@ a {
 .header h1 {
   font-size: 36px;
 }
+.show-skills {
+  display: none;
+}
 /* .portfolio-images {
   padding: 0 20px;
 } */
@@ -501,7 +504,19 @@ footer .contact img {
   color: white;
   border: none;
 }
-
+.w3-light-grey {
+  color: #000 !important;
+  background-color: #f1f1f1 !important;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.w3-blue {
+  color: #fff !important;
+  background-color: #2196f3 !important;
+  border-radius: 5px;
+  font-size: 12px;
+  text-align: center;
+}
 @media only screen and (max-width: 992px) {
   .row,
   .row-start-change {

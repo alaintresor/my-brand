@@ -27,12 +27,12 @@
                                     Home
                                 </span>
                             </a>
-                            <a href="#about">
+                            <a href="#about" onclick="switchContent('aboutBtn')">
                                 <span>
                                     About
                                 </span>
                             </a>
-                            <a href="#about">
+                            <a href="#about" onclick="switchContent('skillsBtn')">
                                 <span>
                                     Skills
                                 </span>
@@ -58,32 +58,32 @@
                         </div>
                     </div>
                     <div class="mobile-menu">
-                        <a href="#home">
+                        <a href="#home" onclick="showMenu()">
                             <div>
                                 Home
                             </div>
                         </a>
-                        <a href="#about">
+                        <a href="#about" onclick="switchContent('aboutBtn');showMenu()">
                             <div>
                                 About
                             </div>
                         </a>
-                        <a href="#about">
+                        <a href="#about" onclick="switchContent('skillsBtn');showMenu()">
                             <div>
                                 Skills
                             </div>
                         </a>
-                        <a href="#portfolio">
+                        <a href="#portfolio" onclick="showMenu()">
                             <div>
                                 Portfolio
                             </div>
                         </a>
-                        <a href="#blog">
+                        <a href="#blog" onclick="showMenu()">
                             <div>
                                 Blog
                             </div>
                         </a>
-                        <a href="#contact">
+                        <a href="#contact" onclick="showMenu()">
                             <div>
                                 Contact
                             </div>
@@ -139,11 +139,11 @@
 
                 <div class="text-section">
                     <div class="titles">
-                        <button class="active">About Me</button>
-                        <button>Skills</button>
-                        <button>Experiences</button>
+                        <button class="active" id="aboutBtn" onclick="switchContent(this.id)">About Me</button>
+                        <button id="skillsBtn" onclick="switchContent(this.id)">Skills</button>
+                        <button id="experienceBtn" onclick="switchContent(this.id)">Experiences</button>
                     </div>
-                    <div class="content">
+                    <div class="content show-about">
                         <h1>My Story</h1>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                             there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
@@ -155,6 +155,27 @@
                             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                             there live the blind texts.
                         </p>
+                    </div>
+                    <div class="content show-skills">
+                        <h1>My Skills</h1>
+                        <p>I do have the following skills</p>
+                        <h4>Html</h4>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue" style="width:95%">95%</div>
+                        </div>
+                        <h4>CSS</h4>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue" style="width:85%">85%</div>
+                        </div>
+                        <h4>JavaScript</h4>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue" style="width:75%">75%</div>
+                        </div>
+                        <h4>PHP</h4>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue" style="width:70%">70%</div>
+                        </div>
+
                     </div>
                 </div>
             </div>
