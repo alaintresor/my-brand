@@ -1,441 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap"
-      rel="stylesheet"
-    />
-    <title>My Brand</title>
-  </head>
 
-  <body color="bg-white">
-    <section class="top-section">
-      <div class="menu">
-        <div class="container">
-          <div class="nav">
-            <div class="row-noChange">
-              <div class="log">
-                <h1>Al.Tresor</h1>
-              </div>
-              <div class="nav-items">
-                <a href="#home">
-                  <span> Home </span>
-                </a>
-                <a href="#about" onclick="switchContent('aboutBtn')">
-                  <span> About </span>
-                </a>
-                <a href="#about" onclick="switchContent('skillsBtn')">
-                  <span> Skills </span>
-                </a>
-                <a href="#portfolio">
-                  <span> Portfolio </span>
-                </a>
-                <a href="#blog">
-                  <span> Blog </span>
-                </a>
-                <a href="#contact">
-                  <span> Contact </span>
-                </a>
-              </div>
-              <div class="mobile-nav">
-                <img src="images/bx_menu.png" alt="" id="showMenu" />
-              </div>
-            </div>
-            <div class="mobile-menu">
-              <a href="#home" onclick="showMenu()">
-                <div>Home</div>
-              </a>
-              <a href="#about" onclick="switchContent('aboutBtn');showMenu()">
-                <div>About</div>
-              </a>
-              <a href="#about" onclick="switchContent('skillsBtn');showMenu()">
-                <div>Skills</div>
-              </a>
-              <a href="#portfolio" onclick="showMenu()">
-                <div>Portfolio</div>
-              </a>
-              <a href="#blog" onclick="showMenu()">
-                <div>Blog</div>
-              </a>
-              <a href="#contact" onclick="showMenu()">
-                <div>Contact</div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="welcome-section" id="home">
-        <div class="container">
-          <div class="row">
-            <div class="text-section">
-              <button class="btn">Hi There!</button>
-              <h1>I am Alain Tresor Uwineza</h1>
-              <h2>A Web Design._</h2>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts.
-              </p>
-              <div class="btns-section">
-                <a href="#contact">
-                  <button class="hire-btn">
-                    Hire Me
-                    <img
-                      src="images/akar-icons_arrow-right.svg"
-                      alt=""
-                    /></button
-                ></a>
-                <a href="#portfolio">
-                  <button class="view-btn">
-                    View My Portfolio
-                    <img
-                      src="images/akar-icons_arrow-right-blue.svg"
-                      alt=""
-                    /></button
-                ></a>
-              </div>
-              <div class="social-medias">
-                <span>+FACEBOOK</span>
-                <span>+TWITTER</span>
-                <span>+LINKEDIN</span>
-              </div>
-            </div>
-            <div class="welcome-image">
-              <img src="images/cat.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="about" id="about">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
+  <title>My Brand</title>
+</head>
+
+<body color="bg-white">
+  <section class="top-section">
+    <div class="menu" id="mynav">
       <div class="container">
-        <div class="row-start-change">
-          <div class="image-section">
-            <img src="images/him.png" alt="" />
+        <div class="nav">
+          <div class="row-noChange">
+            <div class="log">
+              <h1>Al.Tresor</h1>
+            </div>
+            <div class="nav-items">
+              <a href="#home">
+                <span> Home </span>
+              </a>
+              <a href="#about" onclick="switchContent('aboutBtn')">
+                <span> About </span>
+              </a>
+              <a href="#about" onclick="switchContent('skillsBtn')">
+                <span> Skills </span>
+              </a>
+              <a href="#portfolio">
+                <span> Portfolio </span>
+              </a>
+              <a href="#blog">
+                <span> Blog </span>
+              </a>
+              <a href="#contact">
+                <span> Contact </span>
+              </a>
+            </div>
+            <div class="mobile-nav">
+              <img src="images/bx_menu.png" alt="" id="showMenu" />
+            </div>
           </div>
-
+          <div class="mobile-menu">
+            <a href="#home" onclick="showMenu()">
+              <div>Home</div>
+            </a>
+            <a href="#about" onclick="switchContent('aboutBtn');showMenu()">
+              <div>About</div>
+            </a>
+            <a href="#about" onclick="switchContent('skillsBtn');showMenu()">
+              <div>Skills</div>
+            </a>
+            <a href="#portfolio" onclick="showMenu()">
+              <div>Portfolio</div>
+            </a>
+            <a href="#blog" onclick="showMenu()">
+              <div>Blog</div>
+            </a>
+            <a href="#contact" onclick="showMenu()">
+              <div>Contact</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="welcome-section" id="home">
+      <div class="container">
+        <div class="row">
           <div class="text-section">
-            <div class="titles">
-              <button
-                class="active"
-                id="aboutBtn"
-                onclick="switchContent(this.id)"
-              >
-                About Me
-              </button>
-              <button id="skillsBtn" onclick="switchContent(this.id)">
-                Skills
-              </button>
-              <button id="experienceBtn" onclick="switchContent(this.id)">
-                Experiences
-              </button>
+            <button class="btn">Hi There!</button>
+            <h1>I am Alain Tresor Uwineza</h1>
+            <h2>A Web Design._</h2>
+            <p>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+            <div class="btns-section">
+              <a href="#contact">
+                <button class="hire-btn">
+                  Hire Me
+                  <img src="images/akar-icons_arrow-right.svg" alt="" /></button></a>
+              <a href="#portfolio">
+                <button class="view-btn">
+                  View My Portfolio
+                  <img src="images/akar-icons_arrow-right-blue.svg" alt="" /></button></a>
             </div>
-            <div class="content show-about">
-              <h1>My Story</h1>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts. Separated
-                they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean.
-              </p>
-              <h3>I Do Web Design & Developement since I was 18 Years Old</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts.
-              </p>
+            <div class="social-medias">
+              <span>+FACEBOOK</span>
+              <span>+TWITTER</span>
+              <span>+LINKEDIN</span>
             </div>
-            <div class="content show-skills">
-              <h1>My Skills</h1>
-              <p>I do have the following skills</p>
-              <h4>Html</h4>
-              <div class="w3-light-grey">
-                <div class="w3-container w3-blue" style="width: 95%">95%</div>
-              </div>
-              <h4>CSS</h4>
-              <div class="w3-light-grey">
-                <div class="w3-container w3-blue" style="width: 85%">85%</div>
-              </div>
-              <h4>JavaScript</h4>
-              <div class="w3-light-grey">
-                <div class="w3-container w3-blue" style="width: 75%">75%</div>
-              </div>
-              <h4>PHP</h4>
-              <div class="w3-light-grey">
-                <div class="w3-container w3-blue" style="width: 70%">70%</div>
-              </div>
+          </div>
+          <div class="welcome-image">
+            <img src="images/cat.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <div class="container">
+      <div class="row-start-change">
+        <div class="image-section">
+          <img src="images/him.png" alt="" />
+        </div>
+
+        <div class="text-section">
+          <div class="titles">
+            <button class="active" id="aboutBtn" onclick="switchContent(this.id)">
+              About Me
+            </button>
+            <button id="skillsBtn" onclick="switchContent(this.id)">
+              Skills
+            </button>
+            <button id="experienceBtn" onclick="switchContent(this.id)">
+              Experiences
+            </button>
+          </div>
+          <div class="content show-about">
+            <h1>My Story</h1>
+            <p>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts. Separated
+              they live in Bookmarksgrove right at the coast of the Semantics,
+              a large language ocean.
+            </p>
+            <h3>I Do Web Design & Developement since I was 18 Years Old</h3>
+            <p>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+          </div>
+          <div class="content show-skills">
+            <h1>My Skills</h1>
+            <p>I do have the following skills</p>
+            <h4>Html</h4>
+            <div class="w3-light-grey">
+              <div class="w3-container w3-blue" style="width: 95%">95%</div>
+            </div>
+            <h4>CSS</h4>
+            <div class="w3-light-grey">
+              <div class="w3-container w3-blue" style="width: 85%">85%</div>
+            </div>
+            <h4>JavaScript</h4>
+            <div class="w3-light-grey">
+              <div class="w3-container w3-blue" style="width: 75%">75%</div>
+            </div>
+            <h4>PHP</h4>
+            <div class="w3-light-grey">
+              <div class="w3-container w3-blue" style="width: 70%">70%</div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="portfolio" id="portfolio">
-      <div class="container">
-        <div class="header">
-          <h3>Portfolio</h3>
-          <h1>My Latest Work</h1>
-        </div>
-        <div class="portfolio-images">
-          <div class="row">
-            <img src="images/project-1.png" alt="" />
-            <img src="images/project-2.png" alt="" />
-          </div>
-          <div class="row">
-            <img src="images/project-3.png" alt="" />
-            <img src="images/project-4.png" alt="" />
-          </div>
-          <div class="row">
-            <img src="images/project-5.png" alt="" />
-            <img src="images/project-6.png" alt="" />
-          </div>
-        </div>
+    </div>
+  </section>
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="header">
+        <h3>Portfolio</h3>
+        <h1>My Latest Work</h1>
       </div>
-    </section>
-    <section class="blog" id="blog">
-      <div class="container">
-        <div class="header">
-          <h3>our blog</h3>
-          <h1>Recent From Blog</h1>
+      <div class="portfolio-images">
+        <div class="row">
+          <img src="images/project-1.png" alt="" />
+          <img src="images/project-2.png" alt="" />
         </div>
         <div class="row">
-          <div class="blog-item">
-            <a href="blog.html">
-              <img src="images/project-1.png" alt="" />
-              <div class="content">
-                <div class="row-start">
-                  <div class="date">
-                    <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-                  </div>
-                  <div class="comment">
-                    <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-                  </div>
-                </div>
-                <h3>Tips About Creating A New Web Design</h3>
-                <p>
-                  A small river named Duden flows by their place and supplies it
-                  with the necessary regelialia.
-                </p>
-              </div>
-            </a>
-          </div>
-          <div class="blog-item">
-            <a href="blog.html">
-              <img src="images/project-1.png" alt="" />
-              <div class="content">
-                <div class="row-start">
-                  <div class="date">
-                    <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-                  </div>
-                  <div class="comment">
-                    <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-                  </div>
-                </div>
-                <h3>Tips About Creating A New Web Design</h3>
-                <p>
-                  A small river named Duden flows by their place and supplies it
-                  with the necessary regelialia.
-                </p>
-              </div>
-            </a>
-          </div>
-          <div class="blog-item">
-            <img src="images/project-1.png" alt="" />
-            <div class="content">
-              <div class="row-start">
-                <div class="date">
-                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-                </div>
-                <div class="comment">
-                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-                </div>
-              </div>
-              <h3>Tips About Creating A New Web Design</h3>
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
-            </div>
-          </div>
+          <img src="images/project-3.png" alt="" />
+          <img src="images/project-4.png" alt="" />
         </div>
         <div class="row">
-          <div class="blog-item">
-            <img src="images/project-1.png" alt="" />
-            <div class="content">
-              <div class="row-start">
-                <div class="date">
-                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-                </div>
-                <div class="comment">
-                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-                </div>
-              </div>
-              <h3>Tips About Creating A New Web Design</h3>
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
-            </div>
-          </div>
-          <div class="blog-item">
-            <img src="images/project-1.png" alt="" />
-            <div class="content">
-              <div class="row-start">
-                <div class="date">
-                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-                </div>
-                <div class="comment">
-                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-                </div>
-              </div>
-              <h3>Tips About Creating A New Web Design</h3>
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
-            </div>
-          </div>
-          <div class="blog-item">
-            <img src="images/project-1.png" alt="" />
-            <div class="content">
-              <div class="row-start">
-                <div class="date">
-                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-                </div>
-                <div class="comment">
-                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-                </div>
-              </div>
-              <h3>Tips About Creating A New Web Design</h3>
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
-            </div>
-          </div>
+          <img src="images/project-5.png" alt="" />
+          <img src="images/project-6.png" alt="" />
         </div>
       </div>
-    </section>
-    <section class="contact" id="contact">
+    </div>
+  </section>
+  <section class="blog" id="blog">
+    <div class="container">
+      <div class="header">
+        <h3>our blog</h3>
+        <h1>Recent From Blog</h1>
+      </div>
       <div class="row">
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31900.233936625362!2d30.10339585773588!3d-1.9409402094352468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca73d2df48ff7%3A0x5c6957621a18a4bb!2sKimironko%2C%20Kigali!5e0!3m2!1sen!2srw!4v1647519358383!5m2!1sen!2srw"
-            height="450"
-            style="border: 0; width: 100%"
-            allowfullscreen=""
-            loading="lazy"
-          ></iframe>
+        <div class="blog-item">
+          <a href="blog.html">
+            <img src="images/project-1.png" alt="" />
+            <div class="content">
+              <div class="row-start">
+                <div class="date">
+                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+                </div>
+                <div class="comment">
+                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+                </div>
+              </div>
+              <h3>Tips About Creating A New Web Design</h3>
+              <p>
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+              </p>
+            </div>
+          </a>
         </div>
-        <div class="form">
-          <h1>Contact Us</h1>
-          <p>We're open for any suggestion or just to have a chat</p>
-          <div class="row">
-            <div class="address">
-              <h4>MY ADDRESS:</h4>
-              <p>Kigali, Rwanda</p>
+        <div class="blog-item">
+          <a href="blog.html">
+            <img src="images/project-1.png" alt="" />
+            <div class="content">
+              <div class="row-start">
+                <div class="date">
+                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+                </div>
+                <div class="comment">
+                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+                </div>
+              </div>
+              <h3>Tips About Creating A New Web Design</h3>
+              <p>
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+              </p>
             </div>
-            <div class="email">
-              <h4>MY EMAIL:</h4>
-              <p>tresoralain35@gmail.com</p>
-            </div>
-            <div class="phone">
-              <h4>MY PHONE:</h4>
-              <p>+250780591269</p>
-            </div>
-          </div>
-          <form action="">
-            <div class="row">
-              <input type="text" placeholder="Name" class="half" />
-              <input type="email" placeholder="Email" class="half" />
-            </div>
-            <input type="text" class="full" placeholder="subject" />
-            <textarea
-              name=""
-              id=""
-              rows="3"
-              class="textarea"
-              placeholder="body"
-            ></textarea>
-            <input type="submit" class="submit-btn" value="SEND MESSAGE" />
-          </form>
-          <div class="follow">
-            <h4>Follow Me Here</h4>
+          </a>
+        </div>
+        <div class="blog-item">
+          <img src="images/project-1.png" alt="" />
+          <div class="content">
             <div class="row-start">
-              <div class="follow-item">FACEBOOK</div>
-              <div class="follow-item">TWITTER</div>
-              <div class="follow-item">INSTAGRAM</div>
+              <div class="date">
+                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+              </div>
+              <div class="comment">
+                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="job">
-        <div class="container">
-          <div class="row">
-            <div class="text">
-              <h1>Have any works you want to done by me?</h1>
-              <h4>Far far away, behind the word mountains</h4>
-            </div>
-            <div class="btn">
-              <button class="contact-btn">Contact Me</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="log">
-            <h1>Al.Tresor</h1>
+            <h3>Tips About Creating A New Web Design</h3>
             <p>
               A small river named Duden flows by their place and supplies it
               with the necessary regelialia.
             </p>
-            <div class="row-start">
-              <img src="images/ant-design_twitter-circle-filled.png" alt="" />
-              <img src="images/ic_outline-facebook.png" alt="" />
-              <img
-                src="images/entypo-social_instagram-with-circle.svg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div class="service">
-            <h1>Services</h1>
-
-            <ul>
-              <li>Web Design</li>
-
-              <li>Web Development</li>
-
-              <li>Graphic Design</li>
-
-              <li>UI/UX Design</li>
-            </ul>
-          </div>
-          <div class="contact">
-            <h1>Have a Question</h1>
-            <div>
-              <img src="images/bx_map-alt.png" alt="" />
-              Kigali, Rwanda
-            </div>
-            <div>
-              <img src="images/carbon_phone.png" alt="" />
-              +250780591269
-            </div>
-            <div>
-              <img src="images/carbon_send-alt.png" alt="" />
-              tresoralain35@gmail.com
-            </div>
           </div>
         </div>
       </div>
-      <div class="copyright">copy right &copy; 2020 by Alain Tresor U</div>
-    </footer>
-    <script src="javascript.js"></script>
-  </body>
+      <div class="row">
+        <div class="blog-item">
+          <img src="images/project-1.png" alt="" />
+          <div class="content">
+            <div class="row-start">
+              <div class="date">
+                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+              </div>
+              <div class="comment">
+                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+              </div>
+            </div>
+            <h3>Tips About Creating A New Web Design</h3>
+            <p>
+              A small river named Duden flows by their place and supplies it
+              with the necessary regelialia.
+            </p>
+          </div>
+        </div>
+        <div class="blog-item">
+          <img src="images/project-1.png" alt="" />
+          <div class="content">
+            <div class="row-start">
+              <div class="date">
+                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+              </div>
+              <div class="comment">
+                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+              </div>
+            </div>
+            <h3>Tips About Creating A New Web Design</h3>
+            <p>
+              A small river named Duden flows by their place and supplies it
+              with the necessary regelialia.
+            </p>
+          </div>
+        </div>
+        <div class="blog-item">
+          <img src="images/project-1.png" alt="" />
+          <div class="content">
+            <div class="row-start">
+              <div class="date">
+                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+              </div>
+              <div class="comment">
+                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+              </div>
+            </div>
+            <h3>Tips About Creating A New Web Design</h3>
+            <p>
+              A small river named Duden flows by their place and supplies it
+              with the necessary regelialia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="row">
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31900.233936625362!2d30.10339585773588!3d-1.9409402094352468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca73d2df48ff7%3A0x5c6957621a18a4bb!2sKimironko%2C%20Kigali!5e0!3m2!1sen!2srw!4v1647519358383!5m2!1sen!2srw"
+          height="450" style="border: 0; width: 100%" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="form">
+        <h1>Contact Us</h1>
+        <p>We're open for any suggestion or just to have a chat</p>
+        <div class="row">
+          <div class="address">
+            <h4>MY ADDRESS:</h4>
+            <p>Kigali, Rwanda</p>
+          </div>
+          <div class="email">
+            <h4>MY EMAIL:</h4>
+            <p>tresoralain35@gmail.com</p>
+          </div>
+          <div class="phone">
+            <h4>MY PHONE:</h4>
+            <p>+250780591269</p>
+          </div>
+        </div>
+        <form action="">
+          <div class="row">
+            <input type="text" placeholder="Name" class="half" />
+            <input type="email" placeholder="Email" class="half" />
+          </div>
+          <input type="text" class="full" placeholder="subject" />
+          <textarea name="" id="" rows="3" class="textarea" placeholder="body"></textarea>
+          <input type="submit" class="submit-btn" value="SEND MESSAGE" />
+        </form>
+        <div class="follow">
+          <h4>Follow Me Here</h4>
+          <div class="row-start">
+            <div class="follow-item">FACEBOOK</div>
+            <div class="follow-item">TWITTER</div>
+            <div class="follow-item">INSTAGRAM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="job">
+      <div class="container">
+        <div class="row">
+          <div class="text">
+            <h1>Have any works you want to done by me?</h1>
+            <h4>Far far away, behind the word mountains</h4>
+          </div>
+          <div class="btn">
+            <button class="contact-btn">Contact Me</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="log">
+          <h1>Al.Tresor</h1>
+          <p>
+            A small river named Duden flows by their place and supplies it
+            with the necessary regelialia.
+          </p>
+          <div class="row-start">
+            <img src="images/ant-design_twitter-circle-filled.png" alt="" />
+            <img src="images/ic_outline-facebook.png" alt="" />
+            <img src="images/entypo-social_instagram-with-circle.svg" alt="" />
+          </div>
+        </div>
+        <div class="service">
+          <h1>Services</h1>
+
+          <ul>
+            <li>Web Design</li>
+
+            <li>Web Development</li>
+
+            <li>Graphic Design</li>
+
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+        <div class="contact">
+          <h1>Have a Question</h1>
+          <div>
+            <img src="images/bx_map-alt.png" alt="" />
+            Kigali, Rwanda
+          </div>
+          <div>
+            <img src="images/carbon_phone.png" alt="" />
+            +250780591269
+          </div>
+          <div>
+            <img src="images/carbon_send-alt.png" alt="" />
+            tresoralain35@gmail.com
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">copy right &copy; 2020 by Alain Tresor U</div>
+  </footer>
+  <script src="javascript.js"></script>
+</body>
+
 </html>

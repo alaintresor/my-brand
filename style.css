@@ -22,9 +22,15 @@ a {
   background-color: #53a0e8;
 }
 .menu {
-  background-color: #53a0e8;
+  /* background-color: #53a0e8; */
   position: fixed;
   width: 100%;
+}
+.nav-colored {
+  background-color: #0779e4;
+}
+.nav-transparent {
+  background-color: transparent;
 }
 .menu a {
   color: white;
@@ -517,6 +523,7 @@ footer .contact img {
   font-size: 12px;
   text-align: center;
 }
+
 @media only screen and (max-width: 992px) {
   .row,
   .row-start-change {

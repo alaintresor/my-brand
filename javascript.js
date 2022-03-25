@@ -1,7 +1,16 @@
 let isOn=false;
 const showMenu=()=>{
     const div=document.querySelectorAll(".mobile-menu");
-isOn?div[0].style.display="none": div[0].style.display="flex";
+    
+if(isOn){
+div[0].style.display="none";
+myNav.classList.remove("nav-colored");
+myNav.classList.add("nav-transparent")
+}else{
+ div[0].style.display="flex"
+myNav.classList.add("nav-colored");
+myNav.classList.remove("nav-transparent")
+}
 isOn=!isOn;
 }
 document.getElementById("showMenu").addEventListener('click', showMenu);
@@ -36,3 +45,16 @@ const switchContent=id=>{
 
     }
 }
+
+var myNav = document.getElementById('mynav');
+window.onscroll = function () { 
+    "use strict";
+    if (window.scrollY > 10 ) {
+        myNav.classList.add("nav-colored");
+        myNav.classList.remove("nav-transparent");
+    } 
+    else {
+        myNav.classList.add("nav-transparent");
+        myNav.classList.remove("nav-colored");
+    }
+};
