@@ -469,7 +469,7 @@ footer .contact img {
 }
 .login-form {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   padding-top: 50px;
@@ -693,8 +693,7 @@ footer .contact img {
     cursor: pointer;
   }
   .login-form {
-    width: 100%;
-    margin: 0;
+    align-items: unset;
   }
   .login-form form input,
   .login-form form input[type="submit"] {
