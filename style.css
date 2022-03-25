@@ -469,10 +469,10 @@ footer .contact img {
 }
 .login-form {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 50px;
+  padding-top: 50px;
 }
 .login-form h1 {
   color: white;
@@ -489,7 +489,7 @@ footer .contact img {
 .login-form .form {
   background-color: white;
   padding: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .login-form form {
   display: flex;
@@ -691,5 +691,16 @@ footer .contact img {
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+  }
+  .login-form {
+    width: 100%;
+    margin: 0;
+  }
+  .login-form form input,
+  .login-form form input[type="submit"] {
+    width: 100%;
+  }
+  .login-form p {
+    font-size: 12px;
   }
 }
