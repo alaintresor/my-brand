@@ -525,6 +525,12 @@ footer .contact img {
   .welcome-image {
     display: none;
   }
+  .welcome-section .text-section h1 {
+    font-size: 25px;
+  }
+  .welcome-section .text-section h2 {
+    font-size: 20px;
+  }
   .container {
     margin: 0 20px;
   }
