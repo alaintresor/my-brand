@@ -358,7 +358,7 @@ footer .log img {
   padding-top: 30px;
 }
 footer .service ul {
-  list-style: url("/images/akar-icons_arrow-right-blue.svg");
+  list-style: url("./images/akar-icons_arrow-right-blue.svg");
   line-height: 40px;
 }
 
