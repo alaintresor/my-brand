@@ -4,8 +4,10 @@ const showMenu=()=>{
     
 if(isOn){
 div[0].style.display="none";
+if (window.scrollY <10 ){
 myNav.classList.remove("nav-colored");
 myNav.classList.add("nav-transparent")
+}
 }else{
  div[0].style.display="flex"
 myNav.classList.add("nav-colored");
