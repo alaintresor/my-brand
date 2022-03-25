@@ -1,127 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
     <title>Dashboard</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section class="header">
-        <div class="container">
-            <div class="row-noChange">
-                <div class="log">
-                    <a href="index.html">
-                        <h1>Al.Tresor</h1>
-                    </a>
-                </div>
-                <div class="side">
-                    <div class="user" id="userDiv">
-                        Alain Tresor <span>
-                            <img src="./images/ant-design_caret-down-filled.png" alt="">
-                        </span>
-                        <div class="user-profile">
-                            <h4>user profile</h4>
-                            <hr>
-                            <h4>
-                                <a href="/">
-                                    logout</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="mobile-nav">
-                        <img src="/images/bx_menu.png" alt="" id="showMenu">
-                    </div>
-                </div>
-
+      <div class="container">
+        <div class="row-noChange">
+          <div class="log">
+            <a href="index.html">
+              <h1>Al.Tresor</h1>
+            </a>
+          </div>
+          <div class="side">
+            <div class="user" id="userDiv">
+              Admin
+              <span>
+                <img src="./images/ant-design_caret-down-filled.png" alt="" />
+              </span>
+              <div class="user-profile">
+                <h4>
+                  <a href="index.html"> logout</a>
+                </h4>
+              </div>
             </div>
-            <div class="mobile-menu">
-                <a href="index.html" onclick="showMenu()">
-                    <div class="menu-item">
-                        Dashboard
-                    </div>
-
-                </a>
-
-                <a href="#" onclick="showMenu()">
-                    <div class="menu-item">
-                        New Article
-                    </div>
-                </a>
-
-                <a href="./view-article.html" onclick="showMenu()">
-                    <div class="menu-item">
-                        View Article
-                    </div>
-                </a>
-
+            <div class="mobile-nav">
+              <img src="./images/bx_menu.png" alt="" id="showMenu" />
             </div>
+          </div>
         </div>
+        <div class="mobile-menu">
+          <a href="index.html" onclick="showMenu()">
+            <div class="menu-item">Dashboard</div>
+          </a>
+
+          <a href="#" onclick="showMenu()">
+            <div class="menu-item">New Article</div>
+          </a>
+
+          <a href="./view-article.html" onclick="showMenu()">
+            <div class="menu-item">View Article</div>
+          </a>
+        </div>
+      </div>
     </section>
     <section class="body">
-        <div class="row-start">
-            <div class="menu">
-                <a href="index.html">
-                    <div class="menu-item">
-                        <img src="./images/Vector.png" alt=""> Dashboard
-                    </div>
-
-                </a>
-                <hr>
-                <a href="#">
-                    <div class="menu-item">
-                        <img src="./images/Vector-1.png" alt=""> New Article
-                    </div>
-                </a>
-                <hr>
-                <a href="./view-article.html">
-                    <div class="menu-item">
-                        <img src="./images/ic_twotone-article.png" alt=""> View Article
-                    </div>
-                </a>
-                <hr>
+      <div class="row-start">
+        <div class="menu">
+          <a href="index.html">
+            <div class="menu-item">
+              <img src="./images/Vector.png" alt="" /> Dashboard
             </div>
-            <div class="content">
-                <h1>New Article</h1>
-                <hr>
-                <div class="article-form">
-
-                    <form action="">
-                        <h4>Title</h4>
-                        <input type="text" placeholder="Article Title">
-                        <h4>Cover Image</h4>
-                        <input type="file">
-                        <h4>Body</h4>
-                        <textarea type="text" placeholder="body Title" rows="5"></textarea>
-                        <h4>Tag</h4>
-                        <select name="" id="">
-                            <option value="">
-                                Tech
-                            </option>
-                            <option value="">
-                                Business
-                            </option>
-                            <option value="">
-                                Life Experience
-                            </option>
-                        </select>
-                        <input type="submit" value="CREATE">
-                    </form>
-                </div>
+          </a>
+          <hr />
+          <a href="#">
+            <div class="menu-item">
+              <img src="./images/Vector-1.png" alt="" /> New Article
             </div>
+          </a>
+          <hr />
+          <a href="./view-article.html">
+            <div class="menu-item">
+              <img src="./images/ic_twotone-article.png" alt="" /> View Article
+            </div>
+          </a>
+          <hr />
         </div>
+        <div class="content">
+          <h1>New Article</h1>
+          <hr />
+          <div class="article-form">
+            <form action="">
+              <h4>Title</h4>
+              <input type="text" placeholder="Article Title" />
+              <h4>Cover Image</h4>
+              <input type="file" />
+              <h4>Body</h4>
+              <textarea
+                type="text"
+                placeholder="body Title"
+                rows="5"
+              ></textarea>
+              <h4>Tag</h4>
+              <select name="" id="">
+                <option value="">Tech</option>
+                <option value="">Business</option>
+                <option value="">Life Experience</option>
+              </select>
+              <input type="submit" value="CREATE" />
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
     <footer>
-        <h3>copyright &copy; 2022 by Alain Tresor</h3>
+      <h3>copyright &copy; 2022 by Alain Tresor</h3>
     </footer>
     <script src="./javascript.js"></script>
-</body>
-
-
+  </body>
 </html>
