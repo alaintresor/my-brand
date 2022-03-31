@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
     <title>Login</title>
-</head>
+  </head>
 
-<body class="bg-blue">
+  <body class="bg-blue">
     <div class="container">
-        <div class="login-form">
-            <div>
-                <h1>
-                    Create An Account
-                </h1>
-                <div class="form">
-                    <form action="">
-                        <h4>
-                            Username
-                        </h4>
-                        <input type="text" placeholder="Username">
-                        <h4>
-                            Email
-                        </h4>
-                        <input type="email" placeholder="Email">
-                        <h4>
-                            Password
-                        </h4>
-                        <input type="password" placeholder="Password">
-                        <h4>
-                            Confirm Password
-                        </h4>
-                        <input type="password" placeholder="Confirm your Password">
-                        <input type="submit" value="Sign Up">
-                    </form>
-                    <p>Already have an account? <a href="login.html">Login Here</a></p>
-                </div>
-            </div>
+      <div class="login-form">
+        <div>
+          <h1>Create An Account</h1>
+          <div class="form">
+            <form action="" id="signupForm">
+              <h4>Username</h4>
+              <input type="text" placeholder="Username" id="username" />
+              <h4>Email</h4>
+              <input type="email" placeholder="Email" id="email" />
+              <h4>Password</h4>
+              <input type="password" placeholder="Password" id="password" />
+              <h4>Confirm Password</h4>
+              <input
+                type="password"
+                placeholder="Confirm your Password"
+                id="cpassword"
+              />
+              <input type="submit" value="Sign Up" />
+            </form>
+            <p>Already have an account? <a href="login.html">Login Here</a></p>
+          </div>
         </div>
+      </div>
     </div>
+    <script>
+      document.getElementById("signupForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const cpassword = document.getElementById("cpassword").value;
 
-</body>
-
+        const user = {
+          id: 1,
+          username,
+          email,
+          password,
+          role: "visitor",
+        };
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("Your Account created Successfuly");
+        window.open("login.html", "self");
+      });
+    </script>
+  </body>
 </html>

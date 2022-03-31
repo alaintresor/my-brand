@@ -27,7 +27,10 @@
               </div>
               <div class="nav-items-blog">
                 <a href="index.html"> <span> Home </span></a>
-                <a href="login.html"> <span>Login</span></a>
+                <a href="login.html" id="login"> <span>Login</span></a>
+                <a href="#" onclick="logout()" id="logout">
+                  <span>Logout</span></a
+                >
               </div>
               <div class="mobile-nav">
                 <img src="images/bx_menu.png" alt="" id="showMenu" />
@@ -208,5 +211,16 @@
       <div class="copyright">copy right &copy; 2020 by Alain Tresor U</div>
     </footer>
     <script src="javascript.js"></script>
+    <script>
+      const loginedUser = JSON.parse(localStorage.getItem("loginedUser") || []);
+      if (loginedUser.role == "visitor") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("logout").style.display = "block";
+      }
+      const logout = () => {
+        localStorage.removeItem("loginedUser");
+        location.reload();
+      };
+    </script>
   </body>
 </html>

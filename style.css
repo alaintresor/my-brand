@@ -66,9 +66,15 @@ a {
   justify-content: space-between;
 }
 .nav-items-blog {
-  width: 15%;
+  /* width: 30%; */
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+.nav-items-blog a {
+  padding-right: 30px;
+}
+#logout {
+  display: none;
 }
 .mobile-nav {
   display: none;
@@ -428,6 +434,9 @@ footer .contact img {
   padding-left: 20px;
   font-size: 13px;
 }
+/* #logout {
+  display: none;
+} */
 
 .leave-comment .form {
   /* background-color: white; */
