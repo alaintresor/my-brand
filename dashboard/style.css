@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  min-height: 100vh;
+}
 .row {
   display: flex;
   justify-content: space-between;
@@ -99,6 +102,7 @@ a .menu-item img {
 .content {
   padding: 20px;
   width: 80%;
+  min-height: 100vh;
 }
 .box {
   display: flex;
@@ -178,6 +182,18 @@ input[type="file"] {
   border: none;
   color: white;
   height: 35px;
+}
+input[type="text"],
+input[type="submit"],
+textarea,
+select {
+  border-radius: 5px;
+  border: 1px solid rgb(32, 32, 32);
+  width: 100%;
+}
+input:focus,
+textarea:focus {
+  outline: none;
 }
 
 table {

@@ -33,10 +33,10 @@
             </div>
           </div>
           <div class="mobile-menu">
-            <a href="index.html">
+            <a href="index.html" onclick="showMenu()">
               <div>Home</div>
             </a>
-            <a href="login.html">
+            <a href="login.html" onclick="showMenu()">
               <div>Login</div>
             </a>
           </div>
@@ -48,7 +48,7 @@
   <section class="blog-content">
     <div class="container">
       <div class="image">
-        <img src="images/project-1.png" alt="" srcset="" />
+        <img id="image" alt="" srcset="" />
       </div>
       <div class="title">
         <h1>Creative WordPress Themes</h1>
@@ -198,6 +198,12 @@
     <div class="copyright">copy right &copy; 2020 by Alain Tresor U</div>
   </footer>
   <script src="javascript.js"></script>
+  <script>
+
+    const articles = JSON.parse(localStorage.getItem("articles"));
+    // document.body.style.background = `url(data:image/png;base64,${articles[0].image})`;
+    document.getElementById('image').src = `url(data:image/png;base64,${localStorage.wallpaper})`;
+  </script>
 </body>
 
 </html>

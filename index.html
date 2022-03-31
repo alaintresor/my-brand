@@ -74,7 +74,7 @@
           <div class="text-section">
             <button class="btn">Hi There!</button>
             <h1>I am Alain Tresor Uwineza</h1>
-            <h2>A Web Design._</h2>
+            <h2>A Software Developer._</h2>
             <p>
               Far far away, behind the word mountains, far from the countries
               Vokalia and Consonantia, there live the blind texts.
@@ -96,7 +96,7 @@
             </div>
           </div>
           <div class="welcome-image">
-            <img src="images/cat.png" alt="" />
+            <img src="images/me.png" alt="" />
           </div>
         </div>
       </div>
@@ -187,7 +187,10 @@
         <h3>our blog</h3>
         <h1>Recent From Blog</h1>
       </div>
-      <div class="row">
+      <div class="row" id="articles">
+
+      </div>
+      <!-- <div class="row">
         <div class="blog-item">
           <a href="blog.html">
             <img src="images/project-1.png" alt="" />
@@ -229,80 +232,26 @@
           </a>
         </div>
         <div class="blog-item">
-          <img src="images/project-1.png" alt="" />
-          <div class="content">
-            <div class="row-start">
-              <div class="date">
-                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+          <a href="blog.html">
+            <img src="images/project-1.png" alt="" />
+            <div class="content">
+              <div class="row-start">
+                <div class="date">
+                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+                </div>
+                <div class="comment">
+                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+                </div>
               </div>
-              <div class="comment">
-                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-              </div>
+              <h3>Tips About Creating A New Web Design</h3>
+              <p>
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+              </p>
             </div>
-            <h3>Tips About Creating A New Web Design</h3>
-            <p>
-              A small river named Duden flows by their place and supplies it
-              with the necessary regelialia.
-            </p>
-          </div>
+          </a>
         </div>
-      </div>
-      <div class="row">
-        <div class="blog-item">
-          <img src="images/project-1.png" alt="" />
-          <div class="content">
-            <div class="row-start">
-              <div class="date">
-                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-              </div>
-              <div class="comment">
-                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-              </div>
-            </div>
-            <h3>Tips About Creating A New Web Design</h3>
-            <p>
-              A small river named Duden flows by their place and supplies it
-              with the necessary regelialia.
-            </p>
-          </div>
-        </div>
-        <div class="blog-item">
-          <img src="images/project-1.png" alt="" />
-          <div class="content">
-            <div class="row-start">
-              <div class="date">
-                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-              </div>
-              <div class="comment">
-                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-              </div>
-            </div>
-            <h3>Tips About Creating A New Web Design</h3>
-            <p>
-              A small river named Duden flows by their place and supplies it
-              with the necessary regelialia.
-            </p>
-          </div>
-        </div>
-        <div class="blog-item">
-          <img src="images/project-1.png" alt="" />
-          <div class="content">
-            <div class="row-start">
-              <div class="date">
-                <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
-              </div>
-              <div class="comment">
-                <img src="images/fa_comment-o.png" alt="" /> 3 Comments
-              </div>
-            </div>
-            <h3>Tips About Creating A New Web Design</h3>
-            <p>
-              A small river named Duden flows by their place and supplies it
-              with the necessary regelialia.
-            </p>
-          </div>
-        </div>
-      </div>
+      </div> -->
     </div>
   </section>
   <section class="contact" id="contact">
@@ -410,6 +359,36 @@
     <div class="copyright">copy right &copy; 2020 by Alain Tresor U</div>
   </footer>
   <script src="javascript.js"></script>
+  <script>
+    const getArticleOnIndex = () => {
+      const articles = JSON.parse(localStorage.getItem("articles"));
+      let dataToDisplay = ``;
+      articles.forEach(element => {
+        dataToDisplay += `<div class="blog-item">
+          <a href="blog.html">
+            <img src="url(data:image/png;base64,${localStorage.wallpaper})" alt="" />
+            <div class="content">
+              <div class="row-start">
+                <div class="date">
+                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+                </div>
+                <div class="comment">
+                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+                </div>
+              </div>
+              <h3>${element.title}</h3>
+              <p>
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+              </p>
+            </div>
+          </a>
+        </div>`
+      })
+      document.getElementById('articles').innerHTML = dataToDisplay
+    }
+    getArticleOnIndex()
+  </script>
 </body>
 
 </html>

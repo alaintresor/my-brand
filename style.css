@@ -91,6 +91,9 @@ a {
 .welcome-image {
   width: 100%;
 }
+.welcome-image {
+  margin-bottom: -4px;
+}
 .welcome-section .btn {
   margin-top: 160px;
   width: 80px;
@@ -232,6 +235,9 @@ a {
 .blog {
   padding: 30px 0;
 }
+.blog .blog-item a {
+  color: #000;
+}
 .blog .blog-item {
   width: 50%;
   margin: 10px;
@@ -283,6 +289,15 @@ a {
 /* contact section  */
 .contact .map {
   width: 100%;
+}
+input,
+textarea {
+  border-radius: 5px;
+  border: 1px solid rgb(32, 32, 32);
+}
+input:focus,
+textarea:focus {
+  outline: none;
 }
 .contact .form {
   background-color: white;
