@@ -22,9 +22,14 @@ a {
   background-color: #53a0e8;
 }
 .menu {
-  background-color: #53a0e8;
   position: fixed;
   width: 100%;
+}
+.nav-colored {
+  background-color: #0779e4;
+}
+.nav-transparent {
+  background-color: transparent;
 }
 .menu a {
   color: white;
@@ -493,7 +498,7 @@ footer .contact img {
 .login-form .form {
   background-color: white;
   padding: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .login-form form {
   display: flex;
@@ -526,6 +531,7 @@ footer .contact img {
   font-size: 12px;
   text-align: center;
 }
+
 @media only screen and (max-width: 992px) {
   .row,
   .row-start-change {
@@ -533,6 +539,12 @@ footer .contact img {
   }
   .welcome-image {
     display: none;
+  }
+  .welcome-section .text-section h1 {
+    font-size: 25px;
+  }
+  .welcome-section .text-section h2 {
+    font-size: 20px;
   }
   .container {
     margin: 0 20px;
@@ -688,5 +700,15 @@ footer .contact img {
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+  }
+  .login-form {
+    align-items: unset;
+  }
+  .login-form form input,
+  .login-form form input[type="submit"] {
+    width: 100%;
+  }
+  .login-form p {
+    font-size: 12px;
   }
 }
