@@ -1,196 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Dashboard</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
-  <title>Dashboard</title>
-</head>
+  <body>
+    <section class="header">
+      <div class="container">
+        <div class="row-noChange">
+          <div class="log">
+            <a href="index.html">
+              <h1>Al.Tresor</h1>
+            </a>
+          </div>
+          <div class="side">
+            <div class="user" id="userDiv">
+              Admin
+              <span>
+                <img src="./images/ant-design_caret-down-filled.png" alt="" />
+              </span>
+              <div class="user-profile">
+                <h4>
+                  <a href="../index.html"> logout</a>
+                </h4>
+              </div>
+            </div>
+            <div class="mobile-nav">
+              <img src="./images/bx_menu.png" alt="" id="showMenu" />
+            </div>
+          </div>
+        </div>
+        <div class="mobile-menu">
+          <a href="index.html" onclick="showMenu()">
+            <div class="menu-item">Dashboard</div>
+          </a>
 
-<body>
-  <section class="header">
-    <div class="container">
-      <div class="row-noChange">
-        <div class="log">
-          <a href="index.html">
-            <h1>Al.Tresor</h1>
+          <a href="#" onclick="showMenu()">
+            <div class="menu-item">New Article</div>
+          </a>
+
+          <a href="./view-article.html" onclick="showMenu()">
+            <div class="menu-item">View Article</div>
           </a>
         </div>
-        <div class="side">
-          <div class="user" id="userDiv">
-            Admin
-            <span>
-              <img src="./images/ant-design_caret-down-filled.png" alt="" />
-            </span>
-            <div class="user-profile">
-              <h4>
-                <a href="../index.html"> logout</a>
-              </h4>
+      </div>
+    </section>
+    <section class="body">
+      <div class="row-start">
+        <div class="menu">
+          <a href="index.html">
+            <div class="menu-item">
+              <img src="./images/Vector.png" alt="" /> Dashboard
             </div>
-          </div>
-          <div class="mobile-nav">
-            <img src="./images/bx_menu.png" alt="" id="showMenu" />
+          </a>
+          <hr />
+          <a href="#">
+            <div class="menu-item">
+              <img src="./images/Vector-1.png" alt="" /> New Article
+            </div>
+          </a>
+          <hr />
+          <a href="./view-article.html">
+            <div class="menu-item">
+              <img src="./images/ic_twotone-article.png" alt="" /> View Article
+            </div>
+          </a>
+          <hr />
+        </div>
+        <div class="content">
+          <h1>New Article</h1>
+          <hr />
+          <div class="article-form">
+            <form action="" id="AddArticleForm">
+              <div>
+                <h4>Title</h4>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder="Article Title"
+                  required
+                />
+              </div>
+              <div id="cover">
+                <h4>Cover Image</h4>
+                <input type="file" id="file" name="image" />
+              </div>
+              <div>
+                <h4>Body</h4>
+                <textarea
+                  type="text"
+                  placeholder="body Title"
+                  rows="5"
+                  id="body"
+                  name="body"
+                  required
+                ></textarea>
+              </div>
+              <div>
+                <h4>Tag</h4>
+                <select name="tag" id="tag" required>
+                  <option>Tech</option>
+                  <option>Business</option>
+                  <option>Life Experience</option>
+                </select>
+              </div>
+              <input type="submit" value="CREATE" id="submitBtn" />
+            </form>
           </div>
         </div>
       </div>
-      <div class="mobile-menu">
-        <a href="index.html" onclick="showMenu()">
-          <div class="menu-item">Dashboard</div>
-        </a>
+    </section>
+    <footer>
+      <h3>copyright &copy; 2022 by Alain Tresor</h3>
+    </footer>
+    <script src="./javascript.js"></script>
+    <script src="./assets/ckeditor/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace("body");
 
-        <a href="#" onclick="showMenu()">
-          <div class="menu-item">New Article</div>
-        </a>
+      if (localStorage.getItem("updateId")) {
+        let id = localStorage.getItem("updateId");
 
-        <a href="./view-article.html" onclick="showMenu()">
-          <div class="menu-item">View Article</div>
-        </a>
-      </div>
-    </div>
-  </section>
-  <section class="body">
-    <div class="row-start">
-      <div class="menu">
-        <a href="index.html">
-          <div class="menu-item">
-            <img src="./images/Vector.png" alt="" /> Dashboard
-          </div>
-        </a>
-        <hr />
-        <a href="#">
-          <div class="menu-item">
-            <img src="./images/Vector-1.png" alt="" /> New Article
-          </div>
-        </a>
-        <hr />
-        <a href="./view-article.html">
-          <div class="menu-item">
-            <img src="./images/ic_twotone-article.png" alt="" /> View Article
-          </div>
-        </a>
-        <hr />
-      </div>
-      <div class="content">
-        <h1>New Article</h1>
-        <hr />
-        <div class="article-form">
-          <form action="" id="AddArticleForm">
-            <div>
-              <h4>Title</h4>
-              <input type="text" id="title" name="title" placeholder="Article Title" required />
-            </div>
-            <div id="cover">
-              <h4>Cover Image</h4>
-              <input type="file" id="file" name="image" />
-            </div>
-            <div>
-              <h4>Body</h4>
-              <textarea type="text" placeholder="body Title" rows="5" id="body" name="body" required></textarea>
-            </div>
-            <div>
-              <h4>Tag</h4>
-              <select name="tag" id="tag" required>
-                <option>Tech</option>
-                <option>Business</option>
-                <option>Life Experience</option>
-              </select>
-            </div>
-            <input type="submit" value="CREATE" id="submitBtn" />
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <h3>copyright &copy; 2022 by Alain Tresor</h3>
-  </footer>
-  <script src="./javascript.js"></script>
-  <script src='./assets/ckeditor/ckeditor.js'></script>
-  <script>
-    CKEDITOR.replace('body')
+        document.getElementById("cover").style.display = "none";
+        document.getElementById("submitBtn").value = "UPDATE";
 
-    if (localStorage.getItem('updateId')) {
-      let id = localStorage.getItem('updateId');
+        var articles = JSON.parse(localStorage.getItem("articles"));
+        var articleToUpdate = articles.filter((item) => item.id == id);
+        articles = articles.filter((item) => item.id != id);
 
-      document.getElementById('cover').style.display = 'none'
-      document.getElementById('submitBtn').value = 'UPDATE'
+        document.getElementById("title").value = articleToUpdate[0].title;
+        document.getElementById("body").value = articleToUpdate[0].body;
+        document.getElementById("tag").value = articleToUpdate[0].tag;
 
-      var articles = JSON.parse(localStorage.getItem("articles"))
-      var articleToUpdate = articles.filter(item => item.id == id)
-      articles = articles.filter(item => item.id != id);
+        document
+          .getElementById("AddArticleForm")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
 
-      document.getElementById("title").value = articleToUpdate[0].title
-      document.getElementById("body").value = articleToUpdate[0].body
-      document.getElementById("tag").value = articleToUpdate[0].tag
+            const title = document.getElementById("title").value;
+            const body = CKEDITOR.instances.body.getData();
+            const tag = document.getElementById("tag").value;
+            const Article = {
+              id,
+              title,
+              body,
+              image: articleToUpdate[0].image,
+              tag,
+              postedDate: articleToUpdate[0].postedDate,
+            };
 
-      document.getElementById("AddArticleForm").addEventListener('submit', event => {
-        event.preventDefault();
+            articles.push(Article);
+            localStorage.setItem("articles", JSON.stringify(articles));
 
-        const title = document.getElementById("title").value
-        const body = CKEDITOR.instances.body.getData();
-        const tag = document.getElementById("tag").value
-        const Article = {
-          id,
-          title,
-          body,
-          image: articleToUpdate[0].image,
-          tag,
-          postedDate: articleToUpdate[0].postedDate
-        }
+            window.open("./view-article.html", "self");
+          });
+      } else {
+        document.getElementById("file").required = "";
+        var image;
+        document.getElementById("file").addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const base64String = reader.result
+              .replace("data:", "")
+              .replace(/^.+,/, "");
+            image = base64String;
+            // document.body.style.background = `url(data:image/png;base64,${base64String})`;
+          };
+          reader.readAsDataURL(file);
+        });
 
-        articles.push(Article);
-        localStorage.setItem('articles', JSON.stringify(articles));
+        document
+          .getElementById("AddArticleForm")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            const title = document.getElementById("title").value;
+            const body = CKEDITOR.instances.body.getData();
+            const tag = document.getElementById("tag").value;
 
-        window.open('./view-article.html', 'self')
-      })
-    }
-    else {
-      document.getElementById('file').required = ''
-      var image;
-      document.getElementById('file').addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-          image = base64String;
-          // document.body.style.background = `url(data:image/png;base64,${base64String})`;
-        };
-        reader.readAsDataURL(file);
-      })
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, "0");
+            var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+            var yyyy = today.getFullYear();
 
-      document.getElementById("AddArticleForm").addEventListener('submit', event => {
-        event.preventDefault();
-        const title = document.getElementById("title").value
-        const body = CKEDITOR.instances.body.getData();
-        const tag = document.getElementById("tag").value
+            today = dd + "/" + mm + "/" + yyyy;
 
-        const date = new Date();
-        const day = date.getDay();
-        const month = date.getMonth();
-        const year = date.getFullYear();
-
-        const postedDate = `${day}/${month}/${year}`;
-        const Article = {
-          id: Math.floor(Math.random() * 1000000),
-          title,
-          body,
-          image: image,
-          tag,
-          postedDate
-        }
-        var articles = JSON.parse(localStorage.getItem("articles") || "[]");
-        // Put the object into storage
-        articles.push(Article);
-        localStorage.setItem('articles', JSON.stringify(articles));
-        alert("done")
-      });
-    }
-  </script>
-</body>
-
+            const postedDate = today;
+            const Article = {
+              id: Math.floor(Math.random() * 1000000),
+              title,
+              body,
+              image: image,
+              tag,
+              postedDate,
+            };
+            var articles = JSON.parse(localStorage.getItem("articles") || "[]");
+            // Put the object into storage
+            articles.push(Article);
+            localStorage.setItem("articles", JSON.stringify(articles));
+            window.open("./view-article.html", "self");
+          });
+      }
+    </script>
+  </body>
 </html>
