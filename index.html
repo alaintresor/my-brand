@@ -365,12 +365,12 @@
       let dataToDisplay = ``;
       articles.forEach(element => {
         dataToDisplay += `<div class="blog-item">
-          <a href="blog.html">
-            <img src="url(data:image/png;base64,${localStorage.wallpaper})" alt="" />
+          <a href="./blog.html" onclick="readMore('${element.id}')">
+            <img id="img" src="data:image/png;base64,${element.image}" alt="" />
             <div class="content">
               <div class="row-start">
                 <div class="date">
-                  <img src="images/fontisto_date.svg" alt="" /> JUN 18,2022
+                  <img src="images/fontisto_date.svg" alt="" /> ${element.postedDate}
                 </div>
                 <div class="comment">
                   <img src="images/fa_comment-o.png" alt="" /> 3 Comments
@@ -378,8 +378,7 @@
               </div>
               <h3>${element.title}</h3>
               <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
+                
               </p>
             </div>
           </a>
@@ -388,6 +387,10 @@
       document.getElementById('articles').innerHTML = dataToDisplay
     }
     getArticleOnIndex()
+    const readMore = article => {
+      localStorage.setItem('articleToRead', article);
+      // console.log(article)
+    }
   </script>
 </body>
 

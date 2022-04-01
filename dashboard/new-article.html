@@ -82,19 +82,19 @@
           <form action="" id="AddArticleForm">
             <div>
               <h4>Title</h4>
-              <input type="text" id="title" placeholder="Article Title" required />
+              <input type="text" id="title" name="title" placeholder="Article Title" required />
             </div>
             <div id="cover">
               <h4>Cover Image</h4>
-              <input type="file" id="file" />
+              <input type="file" id="file" name="image" />
             </div>
             <div>
               <h4>Body</h4>
-              <textarea type="text" placeholder="body Title" rows="5" id="body" required></textarea>
+              <textarea type="text" placeholder="body Title" rows="5" id="body" name="body" required></textarea>
             </div>
             <div>
               <h4>Tag</h4>
-              <select name="" id="tag" required>
+              <select name="tag" id="tag" required>
                 <option>Tech</option>
                 <option>Business</option>
                 <option>Life Experience</option>
@@ -110,7 +110,9 @@
     <h3>copyright &copy; 2022 by Alain Tresor</h3>
   </footer>
   <script src="./javascript.js"></script>
+  <script src='./assets/ckeditor/ckeditor.js'></script>
   <script>
+    CKEDITOR.replace('body')
 
     if (localStorage.getItem('updateId')) {
       let id = localStorage.getItem('updateId');
@@ -128,15 +130,17 @@
 
       document.getElementById("AddArticleForm").addEventListener('submit', event => {
         event.preventDefault();
+
         const title = document.getElementById("title").value
-        const body = document.getElementById("body").value
+        const body = CKEDITOR.instances.body.getData();
         const tag = document.getElementById("tag").value
         const Article = {
           id,
           title,
           body,
           image: articleToUpdate[0].image,
-          tag
+          tag,
+          postedDate: articleToUpdate[0].postedDate
         }
 
         articles.push(Article);
@@ -162,14 +166,22 @@
       document.getElementById("AddArticleForm").addEventListener('submit', event => {
         event.preventDefault();
         const title = document.getElementById("title").value
-        const body = document.getElementById("body").value
+        const body = CKEDITOR.instances.body.getData();
         const tag = document.getElementById("tag").value
+
+        const date = new Date();
+        const day = date.getDay();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+
+        const postedDate = `${day}/${month}/${year}`;
         const Article = {
           id: Math.floor(Math.random() * 1000000),
           title,
           body,
           image: image,
-          tag
+          tag,
+          postedDate
         }
         var articles = JSON.parse(localStorage.getItem("articles") || "[]");
         // Put the object into storage
