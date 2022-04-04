@@ -1,122 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap"
-      rel="stylesheet"
-    />
-    <title>Dashboard</title>
-  </head>
 
-  <body>
-    <section class="header">
-      <div class="container">
-        <div class="row-noChange">
-          <div class="log">
-            <a href="index.html">
-              <h1>Al.Tresor</h1>
-            </a>
-          </div>
-          <div class="side">
-            <div class="user" id="userDiv">
-              Admin
-              <span>
-                <img src="./images/ant-design_caret-down-filled.png" alt="" />
-              </span>
-              <div class="user-profile">
-                <h4>
-                  <a href="../index.html"> logout</a>
-                </h4>
-              </div>
-            </div>
-            <div class="mobile-nav">
-              <img src="images/bx_menu.png" alt="" id="showMenu" />
-            </div>
-          </div>
-        </div>
-        <div class="mobile-menu">
-          <a href="#" onclick="showMenu()">
-            <div class="menu-item">Dashboard</div>
-          </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
+  <title>Dashboard</title>
+</head>
 
-          <a href="new-article.html" onclick="showMenu()">
-            <div class="menu-item">New Article</div>
-          </a>
-
-          <a href="./view-article.html" onclick="showMenu()">
-            <div class="menu-item">View Article</div>
+<body>
+  <section class="header">
+    <div class="container">
+      <div class="row-noChange">
+        <div class="log">
+          <a href="index.html">
+            <h1>Al.Tresor</h1>
           </a>
         </div>
-      </div>
-    </section>
-    <section class="body">
-      <div class="row-start">
-        <div class="menu">
-          <a href="#">
-            <div class="menu-item">
-              <img src="./images/Vector.png" alt="" /> Dashboard
-            </div>
-          </a>
-          <hr />
-          <a href="new-article.html">
-            <div class="menu-item">
-              <img src="./images/Vector-1.png" alt="" /> New Article
-            </div>
-          </a>
-          <hr />
-          <a href="./view-article.html">
-            <div class="menu-item">
-              <img src="./images/ic_twotone-article.png" alt="" /> View Article
-            </div>
-          </a>
-          <hr />
-        </div>
-        <div class="content">
-          <h1>Dashboard</h1>
-          <hr />
-          <div class="box">
-            <div class="box-item">
-              <img src="./images/dashicons_admin-post.png" alt="" />
-              <h1>3 Post(s)</h1>
-            </div>
-            <div class="box-item">
-              <img src="./images/fa-solid_comment-dots.png" alt="" />
-              <h1>3 Comment(s)</h1>
-            </div>
-            <div class="box-item">
-              <img src="./images/Vector (2).png" alt="" />
-              <h1>1 Message(s)</h1>
+        <div class="side">
+          <div class="user" id="userDiv">
+            Admin
+            <span>
+              <img src="./images/ant-design_caret-down-filled.png" alt="" />
+            </span>
+            <div class="user-profile">
+              <h4>
+                <a href="#" id="logoutBtn"> logout</a>
+              </h4>
             </div>
           </div>
-          <div class="feedback">
-            <h1>Messages</h1>
-            <div class="feedback-items">
-              <div class="feedback-item">
-                <div class="feedback-title">
-                  <h2>Jone Doe</h2>
-                </div>
-                <div class="feedback-body">
-                  <p>this is very good site!</p>
-                </div>
-                <div class="feedback-footer">
-                  <button class="reply">Reply</button>
-                  <button class="delete">Delete</button>
-                </div>
-              </div>
-            </div>
+          <div class="mobile-nav">
+            <img src="images/bx_menu.png" alt="" id="showMenu" />
           </div>
         </div>
       </div>
-    </section>
-    <footer>
-      <h3>copyright &copy; 2022 by Alain Tresor</h3>
-    </footer>
-    <script src="./javascript.js"></script>
-  </body>
+      <div class="mobile-menu">
+        <a href="#" onclick="showMenu()">
+          <div class="menu-item">Dashboard</div>
+        </a>
+
+        <a href="new-article.html" onclick="showMenu()">
+          <div class="menu-item">New Article</div>
+        </a>
+
+        <a href="./view-article.html" onclick="showMenu()">
+          <div class="menu-item">View Article</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="body">
+    <div class="row-start">
+      <div class="menu">
+        <a href="#">
+          <div class="menu-item">
+            <img src="./images/Vector.png" alt="" /> Dashboard
+          </div>
+        </a>
+        <hr />
+        <a href="new-article.html">
+          <div class="menu-item">
+            <img src="./images/Vector-1.png" alt="" /> New Article
+          </div>
+        </a>
+        <hr />
+        <a href="./view-article.html">
+          <div class="menu-item">
+            <img src="./images/ic_twotone-article.png" alt="" /> View Article
+          </div>
+        </a>
+        <hr />
+      </div>
+      <div class="content">
+        <h1>Dashboard</h1>
+        <hr />
+        <div class="box">
+          <div class="box-item">
+            <img src="./images/dashicons_admin-post.png" alt="" />
+            <h1>3 Post(s)</h1>
+          </div>
+          <div class="box-item">
+            <img src="./images/fa-solid_comment-dots.png" alt="" />
+            <h1>3 Comment(s)</h1>
+          </div>
+          <div class="box-item">
+            <img src="./images/Vector (2).png" alt="" />
+            <h1>1 Message(s)</h1>
+          </div>
+        </div>
+        <div class="feedback">
+          <h1>Messages</h1>
+          <div class="feedback-items" id="messageContainer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <h3>copyright &copy; 2022 by Alain Tresor</h3>
+  </footer>
+  <script src="./javascript.js"></script>
+  <script>
+    const getMessage = () => {
+      const messages = JSON.parse(localStorage.getItem('messages')) || []
+      const messageContainer = document.getElementById('messageContainer');
+      messages.forEach(element => {
+        messageContainer.innerHTML += `<div class="feedback-item">
+              <div class="feedback-title">
+                <h2>${element.username}</h2>
+              </div>
+              <div class="feedback-body">
+                <p>${element.message}</p>
+              </div>
+              <div class="feedback-footer">
+               <a href='mailto:${element.email}' target='blank'> <button class="reply">Reply</button></a>
+                <button class="delete" onclick="deleteMessage('${element.id}')">Delete</button>
+              </div>
+            </div>`
+      });
+    }
+    getMessage()
+    const deleteMessage = id => {
+      const messages = JSON.parse(localStorage.getItem('messages')) || []
+      const newMessages = messages.filter(item => item.id != id);
+      localStorage.setItem('messages', JSON.stringify(newMessages));
+      messageContainer.innerHTML = ''
+      getMessage();
+    }
+  </script>
+</body>
+
 </html>

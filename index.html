@@ -278,13 +278,13 @@
             <p>+250780591269</p>
           </div>
         </div>
-        <form action="">
+        <form action="" id="messageForm">
           <div class="row">
-            <input type="text" placeholder="Name" class="half" />
-            <input type="email" placeholder="Email" class="half" />
+            <input type="text" placeholder=" Name" class="half" id="username" />
+            <input type="email" placeholder=" Email" class="half" id="email" />
           </div>
-          <input type="text" class="full" placeholder="subject" />
-          <textarea name="" id="" rows="3" class="textarea" placeholder="body"></textarea>
+          <textarea name="message" id="message" rows="5" class="textarea"
+            placeholder="  Write your message here ....."></textarea>
           <input type="submit" class="submit-btn" value="SEND MESSAGE" />
         </form>
         <div class="follow">
@@ -373,7 +373,7 @@
                   <img src="images/fontisto_date.svg" alt="" /> ${element.postedDate}
                 </div>
                 <div class="comment">
-                  <img src="images/fa_comment-o.png" alt="" /> 3 Comments
+                  <img src="images/fa_comment-o.png" alt="" /> ${element.comments.length} Comments
                 </div>
               </div>
               <h3>${element.title}</h3>
@@ -391,6 +391,34 @@
       localStorage.setItem('articleToRead', article);
       // console.log(article)
     }
+
+    // to send user message 
+    const sendMessage = e => {
+      e.preventDefault()
+      const messages = JSON.parse(localStorage.getItem('messages')) || [];
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      var yyyy = today.getFullYear();
+
+      postedDate = dd + "/" + mm + "/" + yyyy;
+
+      const newMessage = {
+        id: Math.floor(Math.random() * 1000000),
+        username,
+        email,
+        message,
+        postedDate
+      }
+      messages.push(newMessage)
+      localStorage.setItem('messages', JSON.stringify(messages));
+      alert("Thank you for Your Message")
+      document.getElementById('messageForm').reset()
+    }
+    document.getElementById('messageForm').addEventListener('submit', sendMessage)
   </script>
 </body>
 

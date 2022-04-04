@@ -67,67 +67,26 @@
           <div class="row-start">
             <div class="likes">
               <img src="images/ic_outline-favorite-border.png" alt="" />
-              <span>30</span>
+              <span>20</span>
             </div>
             <div class="likes">
-              <img src="images/fa_comment-o.png" alt="" /> <span>30</span>
+              <img src="images/fa_comment-o.png" alt="" /> <span id="commentIcon"></span>
             </div>
           </div>
         </div>
         <div class="comments-section">
-          <h3>3 comments</h3>
-          <div class="comments">
-            <div class="comment-item">
-              <img src="images/bi_person-circle.png" alt="" />
-              <div class="comment-content">
-                <h3>Jone Doe</h3>
-                <div class="date">JANUARY 18, 2021 AT 10:20AM</div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-                  autem, eum officia, fugiat saepe enim sapiente iste iure!
-                  Quam voluptas earum impedit necessitatibus, nihil?
-                </p>
-              </div>
-            </div>
-            <div class="comment-item">
-              <img src="images/bi_person-circle.png" alt="" />
-              <div class="comment-content">
-                <h3>Jone Doe</h3>
-                <div class="date">JANUARY 18, 2021 AT 10:20AM</div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-                  autem, eum officia, fugiat saepe enim sapiente iste iure!
-                  Quam voluptas earum impedit necessitatibus, nihil?
-                </p>
-              </div>
-            </div>
-            <div class="comment-item">
-              <img src="images/bi_person-circle.png" alt="" />
-              <div class="comment-content">
-                <h3>Jone Doe</h3>
-                <div class="date">JANUARY 18, 2021 AT 10:20AM</div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-                  autem, eum officia, fugiat saepe enim sapiente iste iure!
-                  Quam voluptas earum impedit necessitatibus, nihil?
-                </p>
-              </div>
-            </div>
+          <h3 id="commentNumber"></h3>
+          <div class="comments" id="commentsContainer">
+
           </div>
         </div>
         <div class="leave-comment">
           <h3>Leave Comment</h3>
           <div class="form">
-            <form action="">
-              <div class="row">
-                <input type="text" placeholder="Name" class="half" />
-                <input type="email" placeholder="Email" class="half" />
-              </div>
-              <input type="text" class="full" placeholder="subject" />
-              <textarea name="" id="" rows="5" class="textarea" placeholder="Body"></textarea>
+            <form action="" id="commentForm">
+
+              <textarea name="" rows="5" class="textarea" id="message"
+                placeholder="  Leave your comment here...."></textarea>
               <input type="submit" class="submit-btn" value="POST COMMENT" />
             </form>
           </div>
@@ -209,6 +168,75 @@
       document.getElementById('date').innerHTML = article[0].postedDate
       // console.log(article)
     }
+
+    // commenting on post 
+
+    const comment = e => {
+      e.preventDefault()
+      const { username, email } = JSON.parse(localStorage.getItem("loginedUser"));
+      const id = localStorage.getItem('articleToRead');
+      const message = document.getElementById('message').value;
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      var yyyy = today.getFullYear();
+
+      postedDate = dd + "/" + mm + "/" + yyyy;
+
+      const newComment = {
+        username,
+        email,
+        message,
+        postedDate,
+      }
+
+
+      var articles = JSON.parse(localStorage.getItem("articles"));
+      var articleToUpdate = articles.filter((item) => item.id == id);
+      articles = articles.filter((item) => item.id != id);
+
+      const newComments = articleToUpdate[0].comments || [];
+      newComments.push(newComment)
+
+      const Article = {
+        id: articleToUpdate[0].id,
+        title: articleToUpdate[0].title,
+        body: articleToUpdate[0].body,
+        image: articleToUpdate[0].image,
+        tag: articleToUpdate[0].tag,
+        comments: newComments,
+        likes: articleToUpdate[0].likes,
+        postedDate: articleToUpdate[0].postedDate,
+      };
+
+      articles.push(Article);
+      localStorage.setItem("articles", JSON.stringify(articles));
+      location.reload()
+    }
+    document.getElementById('commentForm').addEventListener('submit', comment)
+
+    // get all article comments 
+    const getComments = () => {
+      const container = document.getElementById("commentsContainer");
+      const article = articles.filter(item => item.id == localStorage.getItem('articleToRead'))
+      const commments = article[0].comments || []
+      // console.log(article[0].comments)
+      commments.forEach(element => {
+        container.innerHTML += `<div class="comment-item">
+              <img src="images/bi_person-circle.png" alt="" />
+              <div class="comment-content">
+                <h3>${element.username}</h3>
+                <div class="date">${element.postedDate}</div>
+                <p>
+                  ${element.message}
+                </p>
+              </div>
+            </div>`;
+      });
+      document.getElementById('commentNumber').innerHTML = commments.length > 1 ? `${commments.length} Comments` : `${commments.length} Comment`
+      document.getElementById('commentIcon').innerHTML = commments.length
+    }
+    getComments()
   </script>
 </body>
 

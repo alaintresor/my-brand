@@ -708,6 +708,7 @@ footer .contact img {
   }
   .blog-content .title {
     flex-direction: column;
+    padding: 20px 0;
   }
   .blog-content .title .date {
     font-size: 11px;
