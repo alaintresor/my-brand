@@ -27,6 +27,7 @@
             <div class="nav-items-blog">
               <a href="index.html"> <span> Home </span></a>
               <a href="login.html" id="login"> <span>Login</span></a>
+              <a href="#"> <span id="username"></span></a>
               <a href="#" onclick="logout()" id="logout">
                 <span>Logout</span></a>
             </div>
@@ -65,9 +66,9 @@
         </p>
         <div class="icons-section">
           <div class="row-start">
-            <div class="likes">
-              <img src="images/ic_outline-favorite-border.png" alt="" />
-              <span>20</span>
+            <div class="likes" onclick="likeArticle()">
+              <img src="images/like.png" id="likeIcon" alt="" />
+              <span id="likesContainer"></span>
             </div>
             <div class="likes">
               <img src="images/fa_comment-o.png" alt="" /> <span id="commentIcon"></span>
@@ -149,9 +150,10 @@
 
 
     const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
-    if (loginedUser.role == "visitor") {
+    if (loginedUser.role) {
       document.getElementById("login").style.display = "none";
       document.getElementById("logout").style.display = "block";
+      document.getElementById('username').innerHTML = loginedUser.username
     }
     const logout = () => {
       localStorage.removeItem("loginedUser");
@@ -166,15 +168,23 @@
       document.getElementById('title').innerHTML = article[0].title
       document.getElementById('body').innerHTML = article[0].body
       document.getElementById('date').innerHTML = article[0].postedDate
+
+      document.getElementById('likesContainer').innerHTML = article[0].likes.length
       // console.log(article)
+      isLikeByMe()
     }
 
     // commenting on post 
+    const id = localStorage.getItem('articleToRead');
+    const user = JSON.parse(localStorage.getItem('loginedUser'))
 
     const comment = e => {
       e.preventDefault()
+      if (!user) {
+        alert('Please Login First!')
+        return false
+      }
       const { username, email } = JSON.parse(localStorage.getItem("loginedUser"));
-      const id = localStorage.getItem('articleToRead');
       const message = document.getElementById('message').value;
       var today = new Date();
       var dd = String(today.getDate()).padStart(2, "0");
@@ -235,8 +245,60 @@
       });
       document.getElementById('commentNumber').innerHTML = commments.length > 1 ? `${commments.length} Comments` : `${commments.length} Comment`
       document.getElementById('commentIcon').innerHTML = commments.length
+
     }
     getComments()
+
+    const likeArticle = () => {
+      if (!user) {
+        alert('Please Login First!')
+        return false
+      }
+      var articles = JSON.parse(localStorage.getItem("articles"));
+      var articleToUpdate = articles.filter((item) => item.id == id);
+      articles = articles.filter((item) => item.id != id);
+
+
+      const newLike = { user_id: user.id }
+      var likes = articleToUpdate[0].likes || [];
+      const found = likes.some(el => el.user_id === user.id);
+
+      if (found) {
+        likes = likes.filter(item => item.user_id !== user.id)
+      }
+      else {
+        likes.push(newLike)
+      }
+
+      const Article = {
+        id: articleToUpdate[0].id,
+        title: articleToUpdate[0].title,
+        body: articleToUpdate[0].body,
+        image: articleToUpdate[0].image,
+        tag: articleToUpdate[0].tag,
+        comments: articleToUpdate[0].comments,
+        likes: likes,
+        postedDate: articleToUpdate[0].postedDate,
+      };
+
+      articles.push(Article);
+      localStorage.setItem("articles", JSON.stringify(articles));
+      document.getElementById('likesContainer').innerHTML = Article.likes.length
+      isLikeByMe()
+    }
+    const isLikeByMe = () => {
+      const articles = JSON.parse(localStorage.getItem("articles"));
+      const icon = document.getElementById("likeIcon")
+      var articleToUpdate = articles.filter((item) => item.id == id);
+      var likes = articleToUpdate[0].likes || [];
+      const found = likes.some(el => el.user_id === user.id);
+      if (found) {
+        icon.src = 'images/liked.png'
+      }
+      else {
+        icon.src = 'images/like.png'
+      }
+    }
   </script>
 </body>
 

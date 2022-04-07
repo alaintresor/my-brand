@@ -443,6 +443,11 @@ footer .contact img {
 .blog-content .body .likes {
   padding-right: 50px;
 }
+.blog-content .body .likes img {
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
+}
 .blog-content .comments {
   padding: 20px 0;
 }
