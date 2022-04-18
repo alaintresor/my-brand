@@ -131,3 +131,31 @@ exports.commentingOnArticle=(req,res)=>{
     })
     .catch(error=>res.json({error:error.message}))
 }
+
+exports.likeArticle=(req,res)=>{
+    const {article_id}=req.body
+    const user_id=req.user._id
+
+    const newLike={
+        user_id,
+    }
+    Article.findOne({_id:article_id})
+    .then(article=>{
+        if(article)
+        {
+            const found = article.likes.some(el => el.user_id.toString() === user_id.toString());
+            if (found) {
+               article.likes=article.likes.filter(item=>item.user_id.toString()!==user_id.toString())
+               
+            }else 
+            {
+                 article.likes.push(newLike);
+            }
+            article.save()
+            .then(result=>res.json(result))
+            .catch(error=>res.json({error:error.message}))
+        }
+        else res.json({error:"article doesn't exist"}).status(400)
+    })
+    .catch(error=>res.json({error:error.message}))
+}

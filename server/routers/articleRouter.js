@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAllArticles, createNewArticle, getOneArticle, updateArticle, deleteArticle, commentingOnArticle } = require("../controllers/articleController");
+const { getAllArticles, createNewArticle, getOneArticle, updateArticle, deleteArticle, commentingOnArticle, likeArticle } = require("../controllers/articleController");
 const { protect } = require("../middlewares/AuthoMiddleware");
 const router = express.Router();
 
@@ -15,6 +15,8 @@ router.patch('/update/:id',protect,updateArticle)
 router.delete('/delete/:id',protect,deleteArticle)
 
 router.post('/comment',protect,commentingOnArticle)
+
+router.post('/like',protect,likeArticle)
 
 
 module.exports = router;

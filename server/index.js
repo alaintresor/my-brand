@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose") 
 const { dbConnect }=require('./config/db');
 const articleRouter=require('./routers/articleRouter');
+const messageRouter=require('./routers/messageRouter');
 const userRouter=require('./routers/userRouter');
 const bodyParser=require('body-parser')
 const cors=require('cors')
@@ -31,6 +32,8 @@ app.get('/',(req,res)=>{
     res.json('Welcome to My brand server ').status(200)
 })
 
-app.use('/article',articleRouter);
+app.use('/api/article',articleRouter);
 
 app.use('/api/users',userRouter)
+
+app.use('/api/message',messageRouter)

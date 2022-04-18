@@ -20,10 +20,19 @@ const schema = mongoose.Schema({
 		comment:{
 			type:String,
 			required:[true,'Please add a comment'],
+		},
+		postedDate:{
+			type:String,
+			required:true
 		}
 	}
-	,{
-		timeStamps:true
+	],
+	likes:[{
+		user_id:{
+			type: mongoose.Schema.Types.ObjectId,
+			required:true,
+			ref:"User",
+		}
 	}]
 },{
 	timeStamps:true
