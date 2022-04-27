@@ -10,6 +10,9 @@ const schema = mongoose.Schema({
 		type:String,
 		required:[true,'Please add a content'],
 	},
+	imageUrl:{
+		type:String
+	},
 	postedDate:String,
 	comments:[{
 		user_id:{

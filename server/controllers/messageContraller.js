@@ -23,12 +23,12 @@ const getAllMessages=async (req,res)=>{
         {
     Message.find()
     .then(messages=>{
-        res.json({messages})
+        res.status(200).json({messages})
     })
-    .catch(error=>res.json(error))
+    .catch(error=>res.status(500).json(error))
 }else
 {
-    res.json({message:'User Not Authorized'}).status(401)
+    res.status(401).json({message:'User Not Authorized'})
 }
 
 }

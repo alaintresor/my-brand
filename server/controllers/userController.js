@@ -17,10 +17,10 @@ const createNewUser= async(req,res)=>{
             username:valationResult.username,
             email:valationResult.email,
             password:hashedPassword,
-            role:'visitor'
+            role:'admin'
         })
         user.save()
-        .then(user=>res.json({
+        .then(user=>res.status(201).json({
             id:user._id,
             username:user.username,
             email:user.email,
@@ -30,7 +30,7 @@ const createNewUser= async(req,res)=>{
         .catch(err=>console.log(err))
     }
     } catch (error) {
-        res.status(400).json(error)
+        res.status(500).json(error)
     }
 }
 
@@ -48,12 +48,12 @@ const LoginUser=async (req,res)=>{
             email:user.email,
             role:user.role,
             token:generateToken(user._id)
-        })
+        }).status(200)
        }
-       else res.json({message:"Invalid credation"}).status(400)
+       else res.status(400).json({message:"Invalid credation"})
 
     } catch (error) {
-        res.json({message:error}).status(400)
+        res.json({message:error}).status(500)
     }
 }
 

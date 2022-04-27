@@ -1,5 +1,6 @@
 const { articleSchema, updateArticleSchema } = require('../helpers/validation_schema');
 const Article=require('../models/articleModel');
+const blogImage=require('../helpers/photoUpload');
 
 
 
@@ -13,35 +14,44 @@ var yyyy = today.getFullYear();
 exports.getAllArticles = function(req, res) {
     Article.find()
     .then(result=>{
-        res.json(result)
+        res.status(200).json(result)
     })
+    .catch(error=>res.status(500).json({'message':error}))
     
 };
-exports.createNewArticle = async function (req, res)  {
+exports.createNewArticle = async (req, res) =>  {
     // const { title,content }=req.body;
+    // console.log(req.user)
     try {
         const valationResult = await articleSchema.validateAsync(req.body);
     
         if(req.user.role.toString()=='admin')
         {
+           
         const article= new Article({
             title:valationResult.title,
             content:valationResult.content,
-            postedDate: today
+            postedDate: today,
+            imageUrl:'',
         })
+        // if(req.files)
+        // {
+        //     const photo=await blogImage(req);
+        //     article.imageUrl=photo.url;
+        // }
         article.save()
         .then(result=>{
-            res.json(result)
+            res.status(200).json(result)
         })
         .catch(error=>console.log(error))
     }
     else
     {
-        res.json({message:'User Not Authorized'}).status(401)
+        res.status(401).json({message:'User Not Authorized'})
     }
     }
     catch (err) { 
-        res.json(err.details[0].message).status(422)
+        res.status(500).json(err)
     }
     
 };
@@ -112,7 +122,6 @@ exports.deleteArticle=(req,res)=>{
 exports.commentingOnArticle=(req,res)=>{
     const {article_id,comment}=req.body
     const user_id=req.user._id
-
     const newComment={
         user_id,
         comment,
