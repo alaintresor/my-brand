@@ -3,7 +3,7 @@ const chai=require( 'chai');
 const { expect } =require( 'chai');
 const chaiHttp =require( 'chai-http');
 const app =require( '../index');
-const Meassage=require('../models/messageModel')
+const Meassage=require('../src/models/messageModel')
 
 const { it, describe, beforeEach, after } = mocha;
 
@@ -37,8 +37,16 @@ describe('Testing message routes',()=>{
        const send= await chai.request(app).post('/api/message/').send(testingMessage)
        const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
         const token = `Bearer ${adminSignin.body.token}`;
-        const res= await chai.request(app).post('/api/message/send').set('Authorization', token)
+        const res= await chai.request(app).get('/api/message/').set('Authorization', token)
         expect(res.status).to.be.equal(200)
+        expect(res.body).to.be.a('object')
+    })
+    it('should return User Not Authorized where user isn\'t admin',async()=>{
+       const send= await chai.request(app).post('/api/message/').send(testingMessage)
+    //    const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjQxOWM3ZGM3YTNlNzY1YzZhZjk2YiIsImlhdCI6MTY1MTE3Njg2NywiZXhwIjoxNjUzNzY4ODY3fQ.m7ByD-CDicvEfi9ELAv3SwkSngr_mb4Iephg9S-rtmg";
+        const res= await chai.request(app).get('/api/message/').set('Authorization', token)
+        expect(res.status).to.be.equal(401)
         expect(res.body).to.be.a('object')
     })
 })

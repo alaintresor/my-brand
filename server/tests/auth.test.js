@@ -3,7 +3,7 @@ const chai=require( 'chai');
 const { expect } =require( 'chai');
 const chaiHttp =require( 'chai-http');
 const app =require( '../index');
-const User =require( '../models/userModel');
+const User =require( '../src/models/userModel');
 
 const { it, describe, beforeEach, after } = mocha;
 
@@ -30,7 +30,6 @@ describe('Testing Auth routes', () => {
 	});
 	it('should register a user.', async () => {
 		const res = await chai.request(app).post('/api/users/register').send(tester);
-        // console.log(res.body)
 		expect(res.status).to.be.equal(201);
 		expect(res.body).to.be.a('object');
 	});
