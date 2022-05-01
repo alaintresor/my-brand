@@ -1,24 +1,23 @@
 version: 2.1
 orbs:
-  node: circleci/node@4.7.0
+  node: circleci/node@5.0.2
 jobs:
-  build_and_test:
-    working_directory: ~/server
+  example-job:
     docker:
-      - image: cimg/node:17.2.0
+      # replace with your preferred image
+      - image: cimg/base:stable
     steps:
-      - checkout
       - node/install-packages:
-          pkg-manager: npm
-      - run:
-          command: |
-            cd server && npm install
-          name: install npm dependencies
-      - run:
-          command: |
-            cd server && npm run test
-          name: run test
+          app-dir: ~/server 
+          cache-only-lockfile: true 
+          check-cache: never 
+          include-branch-in-cache-key: true 
+          pkg-manager: npm 
+          with-cache: true 
 workflows:
-  build_test:
-    jobs:
-      - build_and_test
+    example-workflow:
+      jobs:
+        - example-job
+        - node/run:
+            app-dir: ~/server 
+            npm-run: npm start 
