@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@5.0.2
 jobs:
   example-job:
-    working_directory: ~/server
+    # working_directory: ~/server
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
