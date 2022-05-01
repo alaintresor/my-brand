@@ -12,11 +12,11 @@ jobs:
           pkg-manager: yarn
       - run:
           command: |
-            npm install --save
+            cd server && npm install
           name: install npm dependencies
       - run:
           command: |
-            npm run test
+            cd server && npm run test
           name: run test
 workflows:
   build_test:
