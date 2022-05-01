@@ -1,11 +1,9 @@
 version: 2.1
 orbs:
   node: circleci/node@4.7.0
-
-working_directory: ~/server
-
 jobs:
   build_and_test:
+    working_directory: ~/server
     docker:
       - image: cimg/node:17.2.0
     steps:
