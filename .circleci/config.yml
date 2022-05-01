@@ -3,12 +3,13 @@ orbs:
   node: circleci/node@5.0.2
 jobs:
   example-job:
+    working_directory: ~/server
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
       - node/install-packages:
-          app-dir: server 
+          # app-dir: server 
           cache-only-lockfile: true 
           check-cache: never 
           include-branch-in-cache-key: true 
