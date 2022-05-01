@@ -9,16 +9,16 @@ jobs:
       - image: cimg/base:stable
     steps:
       - node/install-packages:
-          # app-dir: server 
-          cache-only-lockfile: true 
-          check-cache: never 
-          include-branch-in-cache-key: true 
-          pkg-manager: npm 
-          with-cache: true 
+          # app-dir: server
+          cache-only-lockfile: true
+          check-cache: never
+          include-branch-in-cache-key: true
+          pkg-manager: npm
+          with-cache: true
 workflows:
-    example-workflow:
-      jobs:
-        - example-job
-        - node/run:
-            app-dir: server 
-            npm-run: npm start 
+  example-workflow:
+    jobs:
+      - example-job
+      - node/run:
+          # app-dir: server
+          npm-run: npm start
