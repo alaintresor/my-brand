@@ -1,9 +1,0 @@
-{
-    "include":"src",
-    "exclude":"src/documentation",
-    "check-coverage":true,
-    "lines":100,
-    "function":70,
-    "branch":100
-    
-}
