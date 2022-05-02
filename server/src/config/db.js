@@ -1,7 +1,7 @@
 const mongoose =require('mongoose');
 const dotenv =require('dotenv');
 dotenv.config();
-
+console.log('hello')
 const { MONGO_URL } = process.env;
 
 exports.dbConnect = () => {
