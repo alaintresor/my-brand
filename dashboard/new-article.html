@@ -184,20 +184,23 @@
           // formdata.append("photo", image.files[0], "/C:/Users/ALU TECH TEAM/Desktop/55650162.jpg");
 
           var raw = JSON.stringify({
-            "title": "this is testing blog article title 2",
-            "content": "this is testing blog article title content 2"
+            "title": title,
+            "content": body
           });
 
           var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            body: formdata,
+            body: raw,
             redirect: 'follow'
           };
 
           fetch("https://my-brand-app-api.herokuapp.com/api/articles/add", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
+            .then(response => response.json())
+            .then(result => {
+              console.log(result)
+              window.open("./view-article.html", "_self");
+            })
             .catch(error => console.log('error', error));;
 
           // window.open("./view-article.html", "_self");
