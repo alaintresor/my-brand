@@ -100,45 +100,76 @@
   </footer>
   <script src="javascript.js"></script>
   <script>
+    const user = JSON.parse(localStorage.getItem('loginedUser'))
     let articles;
     const getArticleOnDashbaord = () => {
-      articles = JSON.parse(localStorage.getItem("articles"));
-      let dataToDisplay = '';
-      articles.forEach(element => {
-        dataToDisplay += ` <tr>
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+      fetch("https://my-brand-app-api.herokuapp.com/api/articles", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          // console.log(result)
+          articles = result
+          let dataToDisplay = '';
+          articles.forEach(element => {
+            dataToDisplay += ` <tr>
                 <td>${element.title}</td>
                 <td>
                   <div class="btns">
-                    <button> <a href="../blog.html" onclick="readMore('${element.id}')">
+                    <button> <a href="../blog.html" onclick="readMore('${element._id}')">
                       <img src="./images/carbon_view.png" alt="" /></a>
                     </button>
-                    <button> <a href="./new-article.html" onclick="update('${element.id}')">
+                    <button> <a href='new-article.html'  onclick="update('${element._id}','${element.title}','${element.content}')">
                       <img src="./images/akar-icons_edit.png" alt="" />
                       </a>
                     </button>
-                    <button onclick="deleteArticle('${element.id}')">
+                    <button onclick="deleteArticle('${element._id}')">
                       <img src="./images/fluent_delete-16-regular.png" alt="" />
                     </button>
                   </div>
                 </td>
               </tr>`;
-      });
-      document.getElementById('articles').innerHTML = dataToDisplay;
+          });
+          document.getElementById('articles').innerHTML = dataToDisplay;
+        })
+        .catch(error => console.log('error', error));
+
     }
     getArticleOnDashbaord()
 
     const deleteArticle = id => {
-      console.log(id)
-      articles = articles.filter((item) => item.id != id);
-      localStorage.setItem('articles', JSON.stringify(articles));
-      getArticleOnDashbaord()
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+
+      var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch(`https://my-brand-app-api.herokuapp.com/api/articles/delete/${id}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          getArticleOnDashbaord()
+        })
+        .catch(error => console.log('error', error));
+
     }
 
-    const update = id => {
-      localStorage.setItem('updateId', id);
-      // location.href = './'
+    const update = (id, title, content) => {
+      const article = {
+        id, title, content
+      }
+      localStorage.setItem("updateArticle", JSON.stringify(article));
+      // // location.href = './'
+      // console.log(article)
+      // console.log(JSON.parse(localStorage.getItem("updateArticle")));
     }
-    localStorage.removeItem('updateId')
+    localStorage.removeItem('updateArticle')
 
 
     const readMore = article => {

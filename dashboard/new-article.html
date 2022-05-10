@@ -79,7 +79,7 @@
         <h1>New Article</h1>
         <hr />
         <div class="article-form">
-          <form action="" id="AddArticleForm">
+          <form action="" id="AddArticleForm" enctype="multipart/form-data" create-form>
             <div>
               <h4>Title</h4>
               <input type="text" id="title" name="title" placeholder="  Article Title" required />
@@ -111,22 +111,21 @@
   </footer>
   <script src="./javascript.js"></script>
   <script src="./assets/ckeditor/ckeditor.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
+    const user = JSON.parse(localStorage.getItem('loginedUser'))
     CKEDITOR.replace("body");
 
-    if (localStorage.getItem("updateId")) {
-      let id = localStorage.getItem("updateId");
+    if (localStorage.getItem("updateArticle")) {
+      let article = JSON.parse(localStorage.getItem("updateArticle"));
 
       document.getElementById("cover").style.display = "none";
       document.getElementById("submitBtn").value = "UPDATE";
 
-      var articles = JSON.parse(localStorage.getItem("articles"));
-      var articleToUpdate = articles.filter((item) => item.id == id);
-      articles = articles.filter((item) => item.id != id);
-
-      document.getElementById("title").value = articleToUpdate[0].title;
-      document.getElementById("body").value = articleToUpdate[0].body;
-      document.getElementById("tag").value = articleToUpdate[0].tag;
+      document.getElementById("title").value = article.title;
+      document.getElementById("body").value = article.content;
+      // document.getElementById("tag").value = article.tag;
+      // var articleId = article.id
 
       document
         .getElementById("AddArticleForm")
@@ -134,74 +133,79 @@
           event.preventDefault();
 
           const title = document.getElementById("title").value;
-          const body = CKEDITOR.instances.body.getData();
+          const content = CKEDITOR.instances.body.getData();
           const tag = document.getElementById("tag").value;
-          const Article = {
-            id,
-            title,
-            body,
-            image: articleToUpdate[0].image,
-            tag,
-            comments: articleToUpdate[0].comments,
-            likes: articleToUpdate[0].likes,
-            postedDate: articleToUpdate[0].postedDate,
+
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", `Bearer ${user.token}`);
+          myHeaders.append("Content-Type", "application/json");
+
+          var raw = JSON.stringify({
+            "title": title,
+            "content": content
+          });
+
+          var requestOptions = {
+            method: 'PATCH',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
           };
 
-          articles.push(Article);
-          localStorage.setItem("articles", JSON.stringify(articles));
+          fetch(`https://my-brand-app-api.herokuapp.com/api/articles/update/${article.id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
 
-          window.open("./view-article.html", "self");
+
         });
     } else {
-      document.getElementById("file").required = "";
-      var image;
-      document.getElementById("file").addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          const base64String = reader.result
-            .replace("data:", "")
-            .replace(/^.+,/, "");
-          image = base64String;
-          // document.body.style.background = `url(data:image/png;base64,${base64String})`;
-        };
-        reader.readAsDataURL(file);
-      });
+
+      const postForm = document.querySelector('[create-form]');
+
+      document.getElementById("file").required = ""
 
       document
         .getElementById("AddArticleForm")
         .addEventListener("submit", (event) => {
           event.preventDefault();
+          console.log('here')
           const title = document.getElementById("title").value;
           const body = CKEDITOR.instances.body.getData();
           const tag = document.getElementById("tag").value;
+          const image = document.getElementById("file");
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+          myHeaders.append("Authorization", `Bearer ${user.token}`);
 
-          var today = new Date();
-          var dd = String(today.getDate()).padStart(2, "0");
-          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-          var yyyy = today.getFullYear();
+          var formdata = new FormData();
+          formdata.append("title", "this is testing blog article title 2");
+          formdata.append("content", "this is testing blog article title content 2");
+          // formdata.append("photo", image.files[0], "/C:/Users/ALU TECH TEAM/Desktop/55650162.jpg");
 
-          today = dd + "/" + mm + "/" + yyyy;
+          var raw = JSON.stringify({
+            "title": "this is testing blog article title 2",
+            "content": "this is testing blog article title content 2"
+          });
 
-          const postedDate = today;
-          const Article = {
-            id: Math.floor(Math.random() * 1000000),
-            title,
-            body,
-            image: image,
-            tag,
-            comments: [],
-            likes: [],
-            postedDate,
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: formdata,
+            redirect: 'follow'
           };
-          var articles = JSON.parse(localStorage.getItem("articles") || "[]");
-          // Put the object into storage
-          articles.push(Article);
-          localStorage.setItem("articles", JSON.stringify(articles));
-          window.open("./view-article.html", "self");
+
+          fetch("https://my-brand-app-api.herokuapp.com/api/articles/add", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));;
+
+          // window.open("./view-article.html", "_self");
+          // console.log(file)
         });
     }
   </script>
+
 </body>
 
 </html>

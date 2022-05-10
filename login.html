@@ -1,63 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap"
-      rel="stylesheet"
-    />
-    <title>Login</title>
-  </head>
 
-  <body class="bg-blue">
-    <div class="container">
-      <div class="login-form">
-        <div>
-          <h1>Login Form</h1>
-          <div class="form">
-            <form action="" id="loginForm">
-              <h4>Email</h4>
-              <input type="text" placeholder="Email" required id="email" />
-              <h4>Password</h4>
-              <input
-                type="password"
-                placeholder="Password"
-                required
-                id="password"
-              />
-              <input type="submit" value="Login" />
-            </form>
-            <p>Don't have an account? <a href="signup.html">Sign Up Here</a></p>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
+  <title>Login</title>
+</head>
+
+<body class="bg-blue">
+  <div class="container">
+    <div class="login-form">
+      <div>
+        <h1>Login Form</h1>
+        <div class="form">
+          <form action="" id="loginForm">
+            <h4>Email</h4>
+            <input type="text" placeholder="Email" required id="email" />
+            <h4>Password</h4>
+            <input type="password" placeholder="Password" required id="password" />
+            <input type="submit" value="Login" />
+          </form>
+          <p>Don't have an account? <a href="signup.html">Sign Up Here</a></p>
         </div>
       </div>
     </div>
-    <script>
-      document.getElementById("loginForm").addEventListener("submit", (e) => {
-        e.preventDefault();
+  </div>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
 
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const user = users.filter(
-          (item) => item.email == email && item.password == password
-        );
-        if (user.length > 0) {
-          localStorage.setItem("loginedUser", JSON.stringify(user[0]));
-          if (user[0].role == "admin") {
-            location.href = "./dashboard";
-          } else {
-            location.href = "./blog.html";
-          }
-        } else alert("worng password or email");
-        // console.log(user[0].role);
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        "email": email,
+        "password": password
       });
-    </script>
-  </body>
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://my-brand-app-api.herokuapp.com/api/users/login", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          if (result.success) {
+            localStorage.setItem("loginedUser", JSON.stringify(result.user));
+            if (result.user.role == "admin") {
+              location.href = "./dashboard";
+            } else {
+              location.href = "./blog.html";
+            }
+          }
+          else {
+            alert(result.message)
+          }
+        })
+        .catch(error => console.log('error', error));
+    });
+  </script>
+</body>
+
 </html>

@@ -361,12 +361,21 @@
   <script src="javascript.js"></script>
   <script>
     const getArticleOnIndex = () => {
-      const articles = JSON.parse(localStorage.getItem("articles"));
-      let dataToDisplay = ``;
-      articles.forEach(element => {
-        dataToDisplay += `<div class="blog-item">
-          <a href="./blog.html" onclick="readMore('${element.id}')">
-            <img id="img" src="data:image/png;base64,${element.image}" alt="" />
+      // const articles = JSON.parse(localStorage.getItem("articles"));
+      let dataToDisplay = ``
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+      fetch("https://my-brand-app-api.herokuapp.com/api/articles", requestOptions)
+        .then(response => response.json())
+        .then(articles => {
+          console.log(articles)
+          articles.forEach(element => {
+            dataToDisplay += `<div class="blog-item">
+          <a href="./blog.html" onclick="readMore('${element._id}')">
+            <img id="img" src="${element.imageUrl}" alt="" />
             <div class="content">
               <div class="row-start">
                 <div class="date">
@@ -383,8 +392,11 @@
             </div>
           </a>
         </div>`
-      })
-      document.getElementById('articles').innerHTML = dataToDisplay
+          })
+          document.getElementById('articles').innerHTML = dataToDisplay
+        })
+        .catch(error => console.log('error', error));
+
     }
     getArticleOnIndex()
     const readMore = article => {
@@ -395,28 +407,35 @@
     // to send user message 
     const sendMessage = e => {
       e.preventDefault()
-      const messages = JSON.parse(localStorage.getItem('messages')) || [];
+
       const username = document.getElementById('username').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, "0");
-      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      var yyyy = today.getFullYear();
 
-      postedDate = dd + "/" + mm + "/" + yyyy;
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
 
-      const newMessage = {
-        id: Math.floor(Math.random() * 1000000),
-        username,
-        email,
-        message,
-        postedDate
-      }
-      messages.push(newMessage)
-      localStorage.setItem('messages', JSON.stringify(messages));
-      alert("Thank you for Your Message")
-      document.getElementById('messageForm').reset()
+      var raw = JSON.stringify({
+        "name": username,
+        "email": email,
+        "message": message
+      });
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://my-brand-app-api.herokuapp.com/api/message/send", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          alert("Thank you for Your Message")
+          document.getElementById('messageForm').reset()
+        })
+        .catch(error => console.log('error', error));
     }
     document.getElementById('messageForm').addEventListener('submit', sendMessage)
   </script>

@@ -106,31 +106,58 @@
   </footer>
   <script src="./javascript.js"></script>
   <script>
+    const user = JSON.parse(localStorage.getItem('loginedUser'))
     const getMessage = () => {
-      const messages = JSON.parse(localStorage.getItem('messages')) || []
       const messageContainer = document.getElementById('messageContainer');
-      messages.forEach(element => {
-        messageContainer.innerHTML += `<div class="feedback-item">
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch("https://my-brand-app-api.herokuapp.com/api/message/", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          const messages = result.messages || []
+
+          messages.forEach(element => {
+            messageContainer.innerHTML += `<div class="feedback-item">
               <div class="feedback-title">
-                <h2>${element.username}</h2>
+                <h2>${element.name}</h2>
               </div>
               <div class="feedback-body">
                 <p>${element.message}</p>
               </div>
               <div class="feedback-footer">
                <a href='mailto:${element.email}' target='blank'> <button class="reply">Reply</button></a>
-                <button class="delete" onclick="deleteMessage('${element.id}')">Delete</button>
+                <button class="delete" onclick="deleteMessage('${element._id}')">Delete</button>
               </div>
             </div>`
-      });
+          });
+        })
+        .catch(error => console.log('error', error));
     }
     getMessage()
     const deleteMessage = id => {
-      const messages = JSON.parse(localStorage.getItem('messages')) || []
-      const newMessages = messages.filter(item => item.id != id);
-      localStorage.setItem('messages', JSON.stringify(newMessages));
-      messageContainer.innerHTML = ''
-      getMessage();
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+
+      var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch(`https://my-brand-app-api.herokuapp.com/api/message/delete/${id}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          messageContainer.innerHTML = ''
+          getMessage();
+        })
+        .catch(error => console.log('error', error));
     }
   </script>
 </body>

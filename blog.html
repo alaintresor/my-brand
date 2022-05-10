@@ -144,8 +144,28 @@
   </footer>
   <script src="javascript.js"></script>
   <script>
+    const id = localStorage.getItem('articleToRead');
+    var article;
+    window.onload = function () {
+      // const articles = JSON.parse(localStorage.getItem('articles'))
+      // const article = articles.filter(item => item.id == localStorage.getItem('articleToRead'))
 
-    const articles = JSON.parse(localStorage.getItem("articles"));
+
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+      fetch(`https://my-brand-app-api.herokuapp.com/api/articles/${id}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          article = result;
+          display()
+        })
+        .catch(error => console.log('error', error));
+    }
+
+    // const articles = JSON.parse(localStorage.getItem("articles"));
     // document.body.style.background = `url(data:image/png;base64,${articles[0].image})`;
 
 
@@ -160,22 +180,26 @@
       location.reload();
     };
 
-    window.onload = function () {
-      const articles = JSON.parse(localStorage.getItem('articles'))
-      const article = articles.filter(item => item.id == localStorage.getItem('articleToRead'))
 
-      document.getElementById('image').src = `data:image/png;base64,${article[0].image}`;
-      document.getElementById('title').innerHTML = article[0].title
-      document.getElementById('body').innerHTML = article[0].body
-      document.getElementById('date').innerHTML = article[0].postedDate
 
-      document.getElementById('likesContainer').innerHTML = article[0].likes.length
+    const display = () => {
+      console.log(article)
+      document.getElementById('image').src = article.imageUrl;
+      document.getElementById('title').innerHTML = article.title
+      document.getElementById('body').innerHTML = article.content
+      document.getElementById('date').innerHTML = article.postedDate
+
+      document.getElementById('likesContainer').innerHTML = article.likes.length
+      document.getElementById('commentIcon').innerHTML = article.comments.length
       // console.log(article)
-      isLikeByMe()
+      if (user) {
+        isLikeByMe()
+      }
+      getComments()
     }
 
     // commenting on post 
-    const id = localStorage.getItem('articleToRead');
+    // const id = localStorage.getItem('articleToRead');
     const user = JSON.parse(localStorage.getItem('loginedUser'))
 
     const comment = e => {
@@ -186,50 +210,38 @@
       }
       const { username, email } = JSON.parse(localStorage.getItem("loginedUser"));
       const message = document.getElementById('message').value;
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, "0");
-      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      var yyyy = today.getFullYear();
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+      myHeaders.append("Content-Type", "application/json");
 
-      postedDate = dd + "/" + mm + "/" + yyyy;
+      var raw = JSON.stringify({
+        "article_id": id,
+        "comment": message
+      });
 
-      const newComment = {
-        username,
-        email,
-        message,
-        postedDate,
-      }
-
-
-      var articles = JSON.parse(localStorage.getItem("articles"));
-      var articleToUpdate = articles.filter((item) => item.id == id);
-      articles = articles.filter((item) => item.id != id);
-
-      const newComments = articleToUpdate[0].comments || [];
-      newComments.push(newComment)
-
-      const Article = {
-        id: articleToUpdate[0].id,
-        title: articleToUpdate[0].title,
-        body: articleToUpdate[0].body,
-        image: articleToUpdate[0].image,
-        tag: articleToUpdate[0].tag,
-        comments: newComments,
-        likes: articleToUpdate[0].likes,
-        postedDate: articleToUpdate[0].postedDate,
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
       };
 
-      articles.push(Article);
-      localStorage.setItem("articles", JSON.stringify(articles));
-      location.reload()
+      fetch("https://my-brand-app-api.herokuapp.com/api/articles/comment", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          location.reload()
+        })
+        .catch(error => console.log('error', error));
+
     }
     document.getElementById('commentForm').addEventListener('submit', comment)
 
     // get all article comments 
     const getComments = () => {
       const container = document.getElementById("commentsContainer");
-      const article = articles.filter(item => item.id == localStorage.getItem('articleToRead'))
-      const commments = article[0].comments || []
+      // const article = articles.filter(item => item.id == localStorage.getItem('articleToRead'))
+      const commments = article.comments || []
       // console.log(article[0].comments)
       commments.forEach(element => {
         container.innerHTML += `<div class="comment-item">
@@ -238,7 +250,7 @@
                 <h3>${element.username}</h3>
                 <div class="date">${element.postedDate}</div>
                 <p>
-                  ${element.message}
+                  ${element.comment}
                 </p>
               </div>
             </div>`;
@@ -247,50 +259,40 @@
       document.getElementById('commentIcon').innerHTML = commments.length
 
     }
-    getComments()
+
 
     const likeArticle = () => {
       if (!user) {
         alert('Please Login First!')
         return false
       }
-      var articles = JSON.parse(localStorage.getItem("articles"));
-      var articleToUpdate = articles.filter((item) => item.id == id);
-      articles = articles.filter((item) => item.id != id);
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+      myHeaders.append("Content-Type", "application/json");
 
+      var raw = JSON.stringify({
+        "article_id": id
+      });
 
-      const newLike = { user_id: user.id }
-      var likes = articleToUpdate[0].likes || [];
-      const found = likes.some(el => el.user_id === user.id);
-
-      if (found) {
-        likes = likes.filter(item => item.user_id !== user.id)
-      }
-      else {
-        likes.push(newLike)
-      }
-
-      const Article = {
-        id: articleToUpdate[0].id,
-        title: articleToUpdate[0].title,
-        body: articleToUpdate[0].body,
-        image: articleToUpdate[0].image,
-        tag: articleToUpdate[0].tag,
-        comments: articleToUpdate[0].comments,
-        likes: likes,
-        postedDate: articleToUpdate[0].postedDate,
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
       };
 
-      articles.push(Article);
-      localStorage.setItem("articles", JSON.stringify(articles));
-      document.getElementById('likesContainer').innerHTML = Article.likes.length
-      isLikeByMe()
+      fetch("https://my-brand-app-api.herokuapp.com/api/articles/like", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          location.reload()
+        })
+        .catch(error => console.log('error', error));
+
     }
     const isLikeByMe = () => {
-      const articles = JSON.parse(localStorage.getItem("articles"));
       const icon = document.getElementById("likeIcon")
-      var articleToUpdate = articles.filter((item) => item.id == id);
-      var likes = articleToUpdate[0].likes || [];
+      var likes = article.likes
       const found = likes.some(el => el.user_id === user.id);
       if (found) {
         icon.src = 'images/liked.png'
