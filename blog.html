@@ -50,8 +50,8 @@
 
   <section class="blog-content">
     <div class="container">
-      <div class="image">
-        <img id="image" alt="" srcset="" />
+      <div class="image" id="image">
+        <!-- <img  alt="" srcset="" /> -->
       </div>
       <div class="title">
         <h1 id="title"></h1>
@@ -184,7 +184,7 @@
 
     const display = () => {
       console.log(article)
-      document.getElementById('image').src = article.imageUrl;
+      document.getElementById('image').innerHTML = `<img src="${article.imageUrl}" alt="" />`;
       document.getElementById('title').innerHTML = article.title
       document.getElementById('body').innerHTML = article.content
       document.getElementById('date').innerHTML = article.postedDate
