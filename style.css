@@ -598,6 +598,7 @@ footer .contact img {
   .about .text-section {
     margin-top: 20px;
     margin-left: 0;
+    width: 100%;
   }
 
   .about .text-section .titles button {
