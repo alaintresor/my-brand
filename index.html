@@ -362,7 +362,7 @@
         redirect: 'follow'
       };
 
-      fetch("https://my-brand-app-api.herokuapp.com/api/articles", requestOptions)
+      fetch("https://web-production-2cf0.up.railway.app/api/articles", requestOptions)
         .then(response => response.json())
         .then(articles => {
           console.log(articles)
@@ -422,7 +422,7 @@
         redirect: 'follow'
       };
 
-      fetch("https://my-brand-app-api.herokuapp.com/api/message/send", requestOptions)
+      fetch("https://web-production-2cf0.up.railway.app/api/message/send", requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log(result)

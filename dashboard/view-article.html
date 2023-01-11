@@ -108,7 +108,7 @@
         redirect: 'follow'
       };
 
-      fetch("https://my-brand-app-api.herokuapp.com/api/articles", requestOptions)
+      fetch("https://web-production-2cf0.up.railway.app/api/articles", requestOptions)
         .then(response => response.json())
         .then(result => {
           // console.log(result)
@@ -150,7 +150,7 @@
         redirect: 'follow'
       };
 
-      fetch(`https://my-brand-app-api.herokuapp.com/api/articles/delete/${id}`, requestOptions)
+      fetch(`https://web-production-2cf0.up.railway.app/api/articles/delete/${id}`, requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log(result)
